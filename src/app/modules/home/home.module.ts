@@ -12,7 +12,8 @@ import { DocsModule } from '../docs/docs.module';
     HomepageComponent,
     NavbarComponent,
     FooterComponent,
-    SidebarComponent
+    SidebarComponent,
+    
   ],
   imports: [
     CommonModule,

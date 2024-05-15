@@ -1,1 +1,93 @@
-<p>register works!</p>
+<div class="container-xxl">
+  <div class="authentication-wrapper authentication-basic container-p-y">
+    <div class="row authentication-inner">
+      <!-- Register Card -->
+      <div class="card col-6">
+        <div class="card-body">
+          <!-- Logo -->
+          <div class="app-brand justify-content-center">
+            <a class="app-brand-link gap-2">
+              <span class="app-brand-logo demo"> Inscription </span>
+            </a>
+          </div>
+          <!-- /Logo -->
+
+          <form id="formAuthentication" class="mb-3">
+            <div class="mb-3">
+              <label for="firstName" class="form-label">Prénom</label>
+              <input
+                type="text"
+                class="form-control"
+                id="firstName"
+                name="firstName"
+                placeholder="Entrez votre prénom"
+                autofocus
+                [(ngModel)]="user.firstName"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="lastName" class="form-label">Nom</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastName"
+                name="lastName"
+                placeholder="Entrez votre nom de famille"
+                autofocus
+                [(ngModel)]="user.lastName"
+              />
+            </div>
+            <div class="mb-2">
+              <label for="userName" class="form-label">Pseudoname</label>
+              <input
+                type="text"
+                class="form-control"
+                id="userName"
+                name="userName"
+                placeholder="Entrer votre userName"
+                [(ngModel)]="user.userName"
+              />
+            </div>
+            <div class="mb-3 form-password-toggle">
+              <label class="form-label" for="password">Mot de Passe</label>
+              <div class="input-group input-group-merge">
+                <input
+                  type="password"
+                  id="password"
+                  class="form-control"
+                  name="password"
+                  placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                  aria-describedby="password"
+                  [(ngModel)]="user.password"
+                />
+                <span class="input-group-text cursor-pointer"
+                  ><i class="bx bx-hide"></i
+                ></span>
+              </div>
+            </div>
+
+            <button class="btn btn-primary d-grid w-100" (click)="onRegister()">
+              S'inscrire
+            </button>
+          </form>
+
+          <p class="text-center">
+            <span>Vous avez déjà un compte?</span>
+            <a (click)="goLogin()">
+              <span>Connectez-vous plutôt</span>
+            </a>
+          </p>
+        </div>
+      </div>
+      <!-- Register Card -->
+
+      <div class="col-6">
+        <!-- <img
+            src="http://localhost:3000/uploads/signup.webp"
+            alt=""
+            style="width: 90%; height: 90%"
+          /> -->
+      </div>
+    </div>
+  </div>
+</div>
