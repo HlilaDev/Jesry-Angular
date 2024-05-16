@@ -14,7 +14,7 @@ export class AuthService {
   constructor(private http: HttpClient, private cookieService: CookieService) {}
 
   login(user: any) {
-    return this.http.post(API_URLS.login, user).pipe(
+    return this.http.post(API_URLS.auth.login, user).pipe(
       tap((response: any) => {
         const token = response;
         console.log(token);
@@ -25,7 +25,7 @@ export class AuthService {
   }
 
   register(newUser: any) {
-    return this.http.post(API_URLS.register, newUser);
+    return this.http.post(API_URLS.auth.register, newUser);
   }
 
   setTokenInCookie(token: string): void {
@@ -57,7 +57,7 @@ export class AuthService {
   getUserIDFromToken(): string {
     const token = this.getTokenFromCookie();
     const decodedToken: any = this.jwtHelper.decodeToken(token);
-    return decodedToken.userId;
+    return decodedToken._id;
   }
 
   getUserRoleFromToken(): string {

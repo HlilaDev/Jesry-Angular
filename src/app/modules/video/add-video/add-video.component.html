@@ -1,1 +1,92 @@
-<p>add-video works!</p>
+<p>Ajouter un Video</p>
+<div class="col-8">
+  <form action="">
+    <div class="input-form">
+      <label for="file">video</label
+      ><input
+        type="file"
+        id="file"
+        class="form-control"
+        name="password"
+        (change)="onVideoSelected($event)"
+      />
+    </div>
+
+    <div class="title">
+      <label for="firstName">Titre</label>
+      <input
+        type="text"
+        id="firstName"
+        class="form-control"
+        name="firstName"
+        [(ngModel)]="video.title"
+      />
+    </div>
+
+    <div class="descriptions">
+      <div>
+        <label class="form-label" for="description">Decriptions</label>
+        <textarea
+          [(ngModel)]="video.description"
+          class="form-control"
+          name="description"
+          id="description"
+          rows="3"
+          style="height: 84px"
+        ></textarea>
+      </div>
+    </div>
+
+    <div class="category">
+      <label for="category">Catégorie</label>
+      <select
+        class="form-control"
+        name="category"
+        id="category"
+        [(ngModel)]="video.category"
+      >
+        <option *ngFor="let category of categories" [value]="category._id">
+          {{ category.title }}
+        </option>
+      </select>
+    </div>
+
+    <div class="playlist">
+      <label for="playlist">Playlist</label>
+      <select
+        class="form-control"
+        name="playlist"
+        id="playlist"
+        [(ngModel)]="video.playlist"
+      >
+        <option *ngFor="let playlist of playlists" [value]="playlist._id">
+          {{ playlist.title }}
+        </option>
+      </select>
+    </div>
+
+    <div class="tags">
+      <label for="tags">Tags</label
+      ><input
+        type="text"
+        class="form-control"
+        name="tags"
+        id="tags"
+        [(ngModel)]="video.tags"
+      />
+    </div>
+
+    <div class="buttons-form">
+      <button type="button" class="btn btn-success mt-3" (click)="addVideo()">
+        Ajouter
+      </button>
+      <button
+        type="button"
+        class="btn btn-secondary mt-3"
+        (click)="cancelAddVideo()"
+      >
+        Annuler
+      </button>
+    </div>
+  </form>
+</div>

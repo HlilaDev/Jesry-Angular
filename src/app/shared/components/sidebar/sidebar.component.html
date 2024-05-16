@@ -1,1 +1,127 @@
-<p>sidebar works!</p>
+<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+  <div class="app-brand demo">
+    <a routerLink="/home" class="app-brand-link">
+      <span class="app-brand-text demo menu-text fw-bolder ms-2">Jesry</span>
+    </a>
+
+    <a
+      href="javascript:void(0);"
+      class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none"
+    >
+      <i class="bx bx-chevron-left bx-sm align-middle"></i>
+    </a>
+  </div>
+
+  <div class="menu-inner-shadow"></div>
+
+  <ul class="menu-inner py-1">
+    <!-- Dashboard -->
+    <li
+      class="menu-item"
+      [ngClass]="{ active: activeMenu === 'Dashboard' }"
+      (click)="activeMenu = 'Dashboard'"
+    >
+      <a routerLink="dashboard" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-home-circle"></i>
+        <div>Dashboard {{ role }}</div>
+      </a>
+    </li>
+
+    <!-- Users -->
+    <li
+      class="menu-item"
+      *ngIf="role == 'admin'"
+      [ngClass]="{ active: activeMenu === 'users' }"
+      (click)="activeMenu = 'users'"
+    >
+      <a routerLink="users" class="menu-link">
+        <i class="bi bi-people"></i>
+        <div class="menu-title">Gestion des comptes</div>
+      </a>
+    </li>
+    <!-- all products -->
+    <li
+      class="menu-item"
+      *ngIf="user?.role == 0 || user?.role == 1"
+      [ngClass]="{ active: activeMenu === 'category' }"
+      (click)="activeMenu = 'category'"
+    >
+      <a routerLink="categories/allCategories" class="menu-link">
+        <i class="bi bi-tags"></i>
+        <div class="menu-title">Gestion des catégories</div>
+      </a>
+
+      <!-- all products -->
+    </li>
+
+    <li
+      class="menu-item"
+      [ngClass]="{ active: activeMenu === 'vidoes' }"
+      (click)="activeMenu = 'vidoes'"
+      *ngIf="user?.role == 0 || user?.role == 1"
+    >
+      <a routerLink="videos" class="menu-link">
+        <i class="bi bi-camera-reels"></i>
+        <div class="menu-title">Gestion des vidoes</div>
+      </a>
+    </li>
+    <li
+      class="menu-item"
+      *ngIf="user?.role == 0 || user?.role == 1"
+      [ngClass]="{ active: activeMenu === 'documents' }"
+      (click)="activeMenu = 'documents'"
+    >
+      <a routerLink="allDocs" class="menu-link">
+        <i class="bi bi-file-earmark-medical"></i>
+        <div class="menu-title">Gestion des documents</div>
+      </a>
+    </li>
+
+    <li
+      class="menu-item"
+      *ngIf="user?.role == 0"
+      [ngClass]="{ active: activeMenu === 'quotes' }"
+      (click)="activeMenu = 'quotes'"
+    >
+      <a routerLink="quotes" class="menu-link">
+        <i class="bi bi-file-earmark-medical"></i>
+        <div class="menu-title">Gestion des quotes</div>
+      </a>
+    </li>
+
+    <!-- vidss -->
+    <li
+      class="menu-item"
+      [ngClass]="{ active: activeMenu === 'Videos' }"
+      (click)="activeMenu = 'Videos'"
+    >
+      <a routerLink="vids" class="menu-link">
+        <i class="bi bi-play-btn"></i>
+        <div class="menu-title">Videos</div>
+      </a>
+    </li>
+    <!-- docs -->
+    <li
+      class="menu-item"
+      [ngClass]="{ active: activeMenu === 'Doc' }"
+      (click)="activeMenu = 'Docs'"
+    >
+      <a routerLink="docs" class="menu-link">
+        <i class="bi bi-play-btn"></i>
+        <div class="menu-title">Documents</div>
+      </a>
+    </li>
+
+    <!-- vidss -->
+    <li
+      class="menu-item"
+      [ngClass]="{ active: activeMenu === 'playlists' }"
+      (click)="activeMenu = 'playlists'"
+    >
+      <a routerLink="playlists" class="menu-link">
+        <i class="bi bi-play-btn"></i>
+        <div class="menu-title">playlists</div>
+      </a>
+    </li>
+  </ul>
+</aside>

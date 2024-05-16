@@ -1,2 +1,64 @@
-<p>add-doc works!</p>
-<h1>role add doc: {{ role }}</h1>
+<p>Ajouter un Doc</p>
+
+<div class="col-8">
+  <form action="">
+    <div class="input-div">
+      <label>Doc</label
+      ><input
+        type="file"
+        class="form-control"
+        name="password"
+        (change)="onDocSelected($event)"
+      />
+    </div>
+
+    <div class="title">
+      <label>Titre</label>
+      <input
+        type="text"
+        class="form-control"
+        name="firstName"
+        [(ngModel)]="Doc.title"
+      />
+    </div>
+
+    <div class="descriptions">
+      <label class="form-label">Decriptions</label>
+      <textarea
+        [(ngModel)]="Doc.description"
+        class="form-control"
+        name="description"
+        rows="3"
+        style="height: 84px"
+      ></textarea>
+    </div>
+
+    <div class="category">
+      <label for="category">Catégorie</label>
+      <select class="form-control" name="category" [(ngModel)]="Doc.category">
+        <option *ngFor="let category of categories" [value]="category._id">
+          {{ category.title }}
+        </option>
+      </select>
+    </div>
+
+    <div class="tags">
+      <label>Tags</label
+      ><input
+        type="text"
+        class="form-control"
+        name="tags"
+        [(ngModel)]="Doc.tags"
+      />
+    </div>
+
+    <div class="buttons-form">
+      <button type="button" class="btn btn-success mt-3" (click)="addDoc()">
+        submit
+      </button>
+      <button type="button" class="btn btn-info mt-3" (click)="cancelAddDoc()">
+        Annuler
+      </button>
+    </div>
+  </form>
+</div>

@@ -9,7 +9,8 @@ const routes: Routes = [
     component: HomepageComponent, 
     children: [
       { path: 'dashboard', component:DashboardComponent },
-      {path:'docs' , loadChildren:()=>import('../docs/docs.module').then(m=>m.DocsModule)}
+      {path:'docs' , loadChildren:()=>import('../docs/docs.module').then(m=>m.DocsModule)},
+      {path:'vids' , loadChildren:()=>import('../video/video.module').then(m=>m.VideoModule)}
     ]
   }
 ];

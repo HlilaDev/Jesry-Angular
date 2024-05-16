@@ -11,13 +11,16 @@ import { setAuthToken } from 'src/app/utils/cookie.utils';
 })
 export class LoginComponent {
   user={
-    userName:' ',
+    userName:'',
     password:''
   }
  
   constructor(private router:Router , private auth:AuthService , private cookieService: CookieService){}
 
   onLogin(){
+    //add trim to iputs
+    this.user.userName = this.user.userName.trim();
+    this.user.password = this.user.password.trim();
     this.auth.login(this.user).subscribe((res)=>{
       const token = res;
       setAuthToken(this.cookieService, token);

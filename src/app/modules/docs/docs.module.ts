@@ -5,6 +5,7 @@ import { DocsRoutingModule } from './docs-routing.module';
 import { AddDocComponent } from './add-doc/add-doc.component';
 import { EditDocComponent } from './edit-doc/edit-doc.component';
 import { AllDocsComponent } from './all-docs/all-docs.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { AllDocsComponent } from './all-docs/all-docs.component';
   ],
   imports: [
     CommonModule,
-    DocsRoutingModule
+    DocsRoutingModule,
+    FormsModule
   ]
 })
 export class DocsModule { }
