@@ -23,14 +23,14 @@
     >
       <a routerLink="dashboard" class="menu-link">
         <i class="menu-icon tf-icons bx bx-home-circle"></i>
-        <div>Dashboard {{ role }}</div>
+        <div>Dashboard</div>
       </a>
     </li>
 
     <!-- Users -->
     <li
       class="menu-item"
-      *ngIf="role == 'admin'"
+      *ngIf="role == 'user'"
       [ngClass]="{ active: activeMenu === 'users' }"
       (click)="activeMenu = 'users'"
     >
@@ -42,13 +42,13 @@
     <!-- all products -->
     <li
       class="menu-item"
-      *ngIf="user?.role == 0 || user?.role == 1"
-      [ngClass]="{ active: activeMenu === 'category' }"
-      (click)="activeMenu = 'category'"
+      *ngIf="role == 'user'"
+      [ngClass]="{ active: activeMenu === 'section' }"
+      (click)="activeMenu = 'section'"
     >
-      <a routerLink="categories/allCategories" class="menu-link">
+      <a routerLink="sections" class="menu-link">
         <i class="bi bi-tags"></i>
-        <div class="menu-title">Gestion des catégories</div>
+        <div class="menu-title">Gestion des sections</div>
       </a>
 
       <!-- all products -->

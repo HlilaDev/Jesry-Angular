@@ -89,6 +89,21 @@ export const API_URLS ={
         removeFav:`${BASE_API_URL}/favs/removeFromFavorites/`,
     },
 
+    courses:{
+        addCourse:`${BASE_API_URL}/courses/add-course/`,
+        getCourseById:`${BASE_API_URL}/courses/course/`,
+        deleteCourse:`${BASE_API_URL}/courses/delete-course/`,
+        updateCourse:`${BASE_API_URL}/courses/delete-course/`,
+
+        allCourses:`${BASE_API_URL}/courses/allCourses/`,
+        coursesBySection:`${BASE_API_URL}/courses/coursesBySection/`,
+
+
+    },
+
+    sections:{
+
+    },
 
    
 }

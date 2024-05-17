@@ -16,9 +16,7 @@ export class AuthService {
   login(user: any) {
     return this.http.post(API_URLS.auth.login, user).pipe(
       tap((response: any) => {
-        const token = response;
-        console.log(token);
-        
+        const token = response;      
         this.setTokenInCookie(token);
       })
     );
