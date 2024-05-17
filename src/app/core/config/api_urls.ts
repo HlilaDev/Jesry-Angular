@@ -93,17 +93,21 @@ export const API_URLS ={
         addCourse:`${BASE_API_URL}/courses/add-course/`,
         getCourseById:`${BASE_API_URL}/courses/course/`,
         deleteCourse:`${BASE_API_URL}/courses/delete-course/`,
-        updateCourse:`${BASE_API_URL}/courses/delete-course/`,
-
+        updateCourse:`${BASE_API_URL}/courses/edit-course/`,
         allCourses:`${BASE_API_URL}/courses/allCourses/`,
         coursesBySection:`${BASE_API_URL}/courses/coursesBySection/`,
-
 
     },
 
     sections:{
+        addSection:`${BASE_API_URL}/sections/add-section/`,
+        getSectionById:`${BASE_API_URL}/sections/section/`,
+        deleteSection:`${BASE_API_URL}/sections/delete-section/`,
+        updateSection:`${BASE_API_URL}/sections/edit-section/`,
+        allSections:`${BASE_API_URL}/sections/allsections/`,
 
     },
-
+   
+    
    
 }

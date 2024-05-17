@@ -1,1 +1,24 @@
-<p>edit-section works!</p>
+<p>Modifier une Section</p>
+
+<form action="">
+  <label for="title">Titre</label>
+  <input
+    type="text"
+    class="form-control"
+    name="title"
+    id="title"
+    [(ngModel)]="section.title"
+  />
+  <label for="level">Decriptions</label
+  ><input
+    type="text"
+    class="form-control"
+    name="level"
+    id="level"
+    [(ngModel)]="section.level"
+  />
+
+  <button type="button" class="btn btn-primary mt-3" (click)="editSection()">
+    Edit
+  </button>
+</form>

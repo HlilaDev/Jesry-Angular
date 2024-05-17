@@ -7,7 +7,7 @@ import { EditSectionComponent } from './edit-section/edit-section.component';
 const routes: Routes = [
   {path:'', component:AllSectionsComponent},
   {path:'add-section', component:AddSectionComponent},
-  {path:'edit-section', component:EditSectionComponent},
+  {path:'edit-section/:sid', component:EditSectionComponent},
 
 
 ];

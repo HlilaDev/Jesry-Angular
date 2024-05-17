@@ -28,5 +28,7 @@ export class LoginComponent {
       this.router.navigate(['/dashboard'])
     })
   }
-  toRegister(){}
+  toRegister(){
+    this.router.navigate(['/auth/register'])
+  }
 }

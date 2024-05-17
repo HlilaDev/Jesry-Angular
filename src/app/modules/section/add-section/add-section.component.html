@@ -1,1 +1,40 @@
-<p>add-section works!</p>
+<p>Ajouter une section</p>
+
+<div class="col-8">
+  <form action="">
+    <div class="title">
+      <label for="title">Titre</label>
+      <input
+        type="text"
+        class="form-control"
+        name="title"
+        id="title"
+        [(ngModel)]="section.title"
+      />
+    </div>
+
+    <div class="descriptions">
+      <label for="level">Niveau</label>
+
+      <select name="level" id="level" [(ngModel)]="section.level">
+        <option value="bac">Baccalauréat</option>
+        <option value="licence">Licence</option>
+        <option value="master">Master</option>
+        <option value="doctorat">Doctorat</option>
+      </select>
+    </div>
+    <div class="buttons-form">
+      <button type="button" class="btn btn-success mt-3" (click)="addSection()">
+        Ajouter
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-secondary mt-3"
+        (click)="cancelAddSection()"
+      >
+        Annuler
+      </button>
+    </div>
+  </form>
+</div>

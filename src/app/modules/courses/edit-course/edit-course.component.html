@@ -1,1 +1,44 @@
-<p>edit-course works!</p>
+<p>Modifier une Matière</p>
+
+<div class="col-8">
+  <form action="">
+    <div class="title">
+      <label for="title">Matière</label>
+      <input
+        type="text"
+        class="form-control"
+        name="title"
+        id="title"
+        [(ngModel)]="course.title"
+      />
+    </div>
+
+    <div class="descriptions">
+      <label for="level">Niveau</label>
+
+      <select
+        name="level"
+        id="level"
+        class="form-control"
+        [(ngModel)]="course.section"
+      >
+        <option *ngFor="let item of sections" [value]="item._id">
+          {{ item.title }}
+        </option>
+      </select>
+    </div>
+    <div class="buttons-form">
+      <button type="button" class="btn btn-success mt-3" (click)="editCourse()">
+        Modifier
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-secondary mt-3"
+        (click)="cancelEditCourse()"
+      >
+        Annuler
+      </button>
+    </div>
+  </form>
+</div>
