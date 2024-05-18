@@ -53,7 +53,7 @@
         class="form-control"
         name="level"
         id="level"
-        [(ngModel)]="video.description"
+        [(ngModel)]="video.section"
       >
         <option *ngFor="let item of sections" [value]="item._id">
           {{ item.title }}
@@ -61,21 +61,21 @@
       </select>
     </div>
 
-    <div class="category col-6">
-      <label for="category">Matière</label>
+    <div class="col-6">
+      <label for="course">Matière</label>
       <select
         class="form-control"
-        name="category"
-        id="category"
+        name="course"
+        id="course"
         [(ngModel)]="video.course"
       >
-        <option *ngFor="let item of courses" [value]="courses._id">
+        <option *ngFor="let item of courses" [value]="item._id">
           {{ item.title }}
         </option>
       </select>
     </div>
 
-    <div class="col-6">
+    <!-- <div class="col-6">
       <label for="playlist">Plyalist</label>
       <select
         class="form-control"
@@ -87,7 +87,7 @@
           {{ playlist.title }}
         </option>
       </select>
-    </div>
+    </div> -->
 
     <div class="tags">
       <label for="tags">Tags</label

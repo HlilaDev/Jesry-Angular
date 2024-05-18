@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Video } from 'src/app/core/models/video.models';
+import {  Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { CourseService } from 'src/app/core/services/course/course.service';
 import { SectionService } from 'src/app/core/services/section/section.service';
@@ -24,12 +23,11 @@ export class AddVideoComponent implements OnInit {
     tags:''
 
   }
-  categories:any
   playlists:any
   courses:any
   sections:any
 
-  constructor(private act:ActivatedRoute ,private sectionservices:SectionService , private videoservices:VideoService ,private courseservices:CourseService, private auth:AuthService , private router:Router){}
+  constructor(private sectionservices:SectionService, private videoservices:VideoService ,private courseservices:CourseService, private auth:AuthService , private router:Router){}
   ngOnInit(): void {
     this.getAllCourses()
     this.getSections()
@@ -50,12 +48,12 @@ export class AddVideoComponent implements OnInit {
   }
   addVideo(){
     const videoForm= new FormData();
-    const authorId = this.act.snapshot.paramMap.get('uid')
+    const authorId = this.auth.getUserIDFromToken()
     videoForm.append('title', this.video.title.toString());
     videoForm.append('description', this.video.description.toString());
     videoForm.append('section', this.video.section);
     videoForm.append('course', this.video.course);
-    videoForm.append('author', this.video.author);
+    videoForm.append('author', authorId);
 
     if (this.video.playlist != ''){
       videoForm.append('playlist', this.video.playlist);
@@ -63,13 +61,10 @@ export class AddVideoComponent implements OnInit {
     
     videoForm.append('tags', this.video.tags);
     videoForm.append('video', this.selectedVideo);
-    if (authorId !== null) {
-      videoForm.append('author', authorId);
-    } else {
-      // Handle the case where userId is null or undefined
-    }
 
     this.videoservices.addVideo(videoForm).subscribe((res)=>{
+      
+      
       this.router.navigate(['/vids'])
     })
   

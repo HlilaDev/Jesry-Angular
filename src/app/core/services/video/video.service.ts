@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { API_URLS } from '../../config/api_urls';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +31,8 @@ export class VideoService {
    return this.http.get(API_URLS.videos.getVideoById+videoId)
   }
 
-  getVideosByCourse(courseId:any){
+
+  getVideosByCourse(courseId:string): Observable<any>{
     return this.http.get(API_URLS.videos.getVideosByCourseId+courseId)
   }
 
@@ -46,7 +48,7 @@ export class VideoService {
     return this.http.get(API_URLS.videos.getFullVideoById+videoId)
   }
 
-  seachVideosByQuerry(querry:string){
+  seachVideosByQuerry(querry:string): Observable<any> {
     return this.http.get(API_URLS.videos.searchVideoByQuerry+querry)
   }
 

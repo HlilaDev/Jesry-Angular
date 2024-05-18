@@ -1,1 +1,46 @@
-<p>all-videos works!</p>
+<div class="container-xxl flex-grow-1 container-p-y">
+  <!----search -->
+  <div class="input-group mb-3 col-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Rechercher des videos..."
+      [(ngModel)]="searchTerm"
+      (keyup.enter)="searchVideos()"
+    />
+    <div class="input-group-append">
+      <button class="btn btn-info" type="button" (click)="searchVideos()">
+        Rechercher
+      </button>
+    </div>
+  </div>
+  <!----fin search -->
+  <div class="categories">
+    <span [ngClass]="{ active: selectedCourse === null }"
+      ><a (click)="filterByCourse('')">Tous</a></span
+    >
+    <span
+      *ngFor="let item of courses"
+      [ngClass]="{ active: selectedCourse === item._id }"
+    >
+      <a (click)="filterByCourse(item._id)">{{ item?.title }}</a>
+    </span>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4" *ngFor="let item of allVideos">
+      <div class="card mb-4 overflow-auto" style="min-height: 300px">
+        <div class="video-container">
+          <video
+            [src]="'http://localhost:3000/uploads/' + item.url"
+            class="card-video"
+            (click)="playvideo(item._id)"
+          ></video>
+          <i class="bi bi-play-circle-fill"></i>
+        </div>
+        <h5 class="card-header">{{ item?.title }}</h5>
+        <div class="card-body">xxx</div>
+      </div>
+    </div>
+  </div>
+</div>

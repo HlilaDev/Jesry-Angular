@@ -33,7 +33,7 @@ export const API_URLS ={
     totalVideos:`${BASE_API_URL}/videos/count/`,
     getFullVideoById:`${BASE_API_URL}/videos/fullVideos/`,
     toggleLike:`${BASE_API_URL}/videos/toggleLike/`,  // !!!!!!!!!!
-    searchVideoByQuerry:`${BASE_API_URL}/videos/search/q=`,
+    searchVideoByQuerry:`${BASE_API_URL}/videos/search?q=`,
     },
 
     //Docs API
