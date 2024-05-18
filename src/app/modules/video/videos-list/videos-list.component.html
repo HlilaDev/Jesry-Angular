@@ -1,0 +1,63 @@
+<!-- Basic Bootstrap Table -->
+<button type="button" class="btn btn-primary mb-3" (click)="onAddVideo()">
+  Ajouter un Video
+</button>
+<div class="card">
+  <h5 class="card-header">Tous les videos ( {{ videoCount }} Videos )</h5>
+  <div class="table-responsive text-nowrap">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>NB</th>
+          <th>Video</th>
+          <th>Titre</th>
+          <th>Matière</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody class="table-border-bottom-0">
+        <tr *ngFor="let item of videos; let i = index">
+          <td>{{ i + 1 }}</td>
+
+          <td>
+            <video
+              [src]="'http://localhost:3000/uploads/videos/' + item?.url"
+            ></video>
+          </td>
+
+          <td>
+            <i class="fab fa-angular fa-lg text-danger me-3"></i>
+            <strong class="text-capitalize">{{ item.title }}</strong>
+          </td>
+
+          <td>
+            <span class="badge bg-label-primary me-1">{{
+              item.courseName
+            }}</span>
+          </td>
+          <td>
+            <div class="dropdown">
+              <button
+                type="button"
+                class="btn p-0 dropdown-toggle hide-arrow"
+                data-bs-toggle="dropdown"
+              >
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" (click)="onEdit(item._id)"
+                  ><i class="bx bx-edit-alt me-1"></i> Modifier</a
+                >
+                <a class="dropdown-item" (click)="onDelete(item._id)"
+                  ><i class="bx bx-trash me-1"></i>
+                  Supprimer
+                </a>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!--/ Basic Bootstrap Table -->

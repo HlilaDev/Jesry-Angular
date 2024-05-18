@@ -27,7 +27,7 @@ export const API_URLS ={
     editVideo:`${BASE_API_URL}/videos/editVideo/`,
     deleteVideo:`${BASE_API_URL}/videos/deleteVideo/`,
     getVideoById:`${BASE_API_URL}/videos/video/`,
-    getVideosByCourseId:`${BASE_API_URL}/videos/getVideosByCourseId/`,
+    getVideosByCourseId:`${BASE_API_URL}/videos/videosByCourseId/`,
     videosBySectionId:`${BASE_API_URL}/videos/videosBySectionId/`,    
     VideosByPlaylist:`${BASE_API_URL}/videos/VideosByPlaylist/`,
     totalVideos:`${BASE_API_URL}/videos/count/`,

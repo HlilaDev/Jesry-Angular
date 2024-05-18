@@ -6,13 +6,15 @@ import { AddVideoComponent } from './add-video/add-video.component';
 import { EditVideoComponent } from './edit-video/edit-video.component';
 import { AllVideosComponent } from './all-videos/all-videos.component';
 import { FormsModule } from '@angular/forms';
+import { VideosListComponent } from './videos-list/videos-list.component';
 
 
 @NgModule({
   declarations: [
     AddVideoComponent,
     EditVideoComponent,
-    AllVideosComponent
+    AllVideosComponent,
+    VideosListComponent
   ],
   imports: [
     CommonModule,
