@@ -5,12 +5,13 @@ import { AddVideoComponent } from './add-video/add-video.component';
 import { EditVideoComponent } from './edit-video/edit-video.component';
 import { VideosListComponent } from './videos-list/videos-list.component';
 import { PlayVideoComponent } from './play-video/play-video.component';
+import { adminModeratorGuard } from 'src/app/core/gurads/admin-moderator/admin-moderator.guard';
 
 const routes: Routes = [
   {path:'' , component:AllVideosComponent} ,
-  {path:'add-video/:uid' , component:AddVideoComponent},
-  {path:'edit-video' , component:EditVideoComponent},
-  {path:'videos-list' , component:VideosListComponent},
+  {path:'add-video/:uid' , component:AddVideoComponent , canActivate:[adminModeratorGuard]},
+  {path:'edit-video' , component:EditVideoComponent, canActivate:[adminModeratorGuard]},
+  {path:'videos-list' , component:VideosListComponent, canActivate:[adminModeratorGuard]},
   {path:'play/:vid' , component:PlayVideoComponent}
 
 ];

@@ -31,6 +31,8 @@ export class PlayVideoComponent implements OnInit {
     this.videoService.getVideoById(videoId).subscribe(
       (res) => {
         this.video = res;
+        console.log(res);
+        
         this.getVideosByCourseId();
       },
       (error) => {
