@@ -38,8 +38,14 @@
           ></video>
           <i class="bi bi-play-circle-fill"></i>
         </div>
-        <h5 class="card-header">{{ item?.title }}</h5>
-        <div class="card-body">{{ item?.author.fullName }}</div>
+      </div>
+      <h5 class="card-header">{{ item?.title }}</h5>
+      <div class="author">
+        <img
+          [src]="'http://localhost:3000/uploads/' + item?.author?.imageUrl"
+          alt=""
+        />
+        <span>{{ item?.author.fullName }}</span>
       </div>
     </div>
   </div>

@@ -36,7 +36,9 @@ export class NavbarComponent implements OnInit{
 
   toProfile(userId:any){}
 
-  goToFav(userId:any){}
+  goToFav(userId:any){
+    this.router.navigate([`/favs`])
+  }
   goToMyNotes(){}
 
   addVideo(userId:any){

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from './homepage/homepage.component';
 import { DashboardComponent } from '../dashboard/dashboard/dashboard.component';
 import { adminGuard } from 'src/app/core/gurads/admin/admin.guard';
+import { FavoritesComponent } from '../favorites/favorites.component';
 
 const routes: Routes = [
   { 
@@ -14,7 +15,8 @@ const routes: Routes = [
       {path:'vids' , loadChildren:()=>import('../video/video.module').then(m=>m.VideoModule)},
       {path:'sections' , loadChildren:()=>import('../section/section.module').then(m=>m.SectionModule)},
       {path:'courses' , loadChildren:()=>import('../courses/courses.module').then(m=>m.CoursesModule)},
-      {path:'users' , loadChildren:()=>import('../users/users.module').then(m=>m.UsersModule) , canActivate:[adminGuard]}
+      {path:'users' , loadChildren:()=>import('../users/users.module').then(m=>m.UsersModule) , canActivate:[adminGuard]},
+      {path:'favs' , component:FavoritesComponent}
 
 
 
