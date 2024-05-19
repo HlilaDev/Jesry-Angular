@@ -16,10 +16,7 @@
       <div class="video-detail">
         <div class="author">
           <img
-            [src]="
-              'http://localhost:3000/uploads/images/profile/' +
-              video?.author?.imageUrl
-            "
+            [src]="'http://localhost:3000/uploads/' + video?.author?.imageUrl"
             alt=""
           />
           <span>{{ video?.author.fullName }}</span>
@@ -53,7 +50,7 @@
           [src]="'http://localhost:3000/uploads/videos/' + item?.url"
         ></video>
         <div class="video-info">
-          <h5>{{ item?.title }}</h5>
+          <h6>{{ item?.title }}</h6>
           <div>{{ item?.author?.fullName }}</div>
         </div>
       </div>

@@ -69,13 +69,15 @@ export class AllVideosComponent implements OnInit {
 
   filterByCourse(courseId: string) {
     this.selectedCourse = courseId;
-
+  
     if (courseId) {
       this.videoService.getVideosByCourse(courseId).subscribe((res) => {
         this.allVideos = res;
         console.log(this.allVideos);
       });
     } else {
+      this.page = 1;
+      this.allVideos = [];
       this.loadVideos();
     }
   }
