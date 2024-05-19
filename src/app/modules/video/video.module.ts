@@ -7,6 +7,7 @@ import { EditVideoComponent } from './edit-video/edit-video.component';
 import { AllVideosComponent } from './all-videos/all-videos.component';
 import { FormsModule } from '@angular/forms';
 import { VideosListComponent } from './videos-list/videos-list.component';
+import { PlayVideoComponent } from './play-video/play-video.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { VideosListComponent } from './videos-list/videos-list.component';
     AddVideoComponent,
     EditVideoComponent,
     AllVideosComponent,
-    VideosListComponent
+    VideosListComponent,
+    PlayVideoComponent,
   ],
   imports: [
     CommonModule,

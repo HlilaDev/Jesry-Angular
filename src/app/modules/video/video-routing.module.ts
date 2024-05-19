@@ -4,12 +4,14 @@ import { AllVideosComponent } from './all-videos/all-videos.component';
 import { AddVideoComponent } from './add-video/add-video.component';
 import { EditVideoComponent } from './edit-video/edit-video.component';
 import { VideosListComponent } from './videos-list/videos-list.component';
+import { PlayVideoComponent } from './play-video/play-video.component';
 
 const routes: Routes = [
   {path:'' , component:AllVideosComponent} ,
   {path:'add-video/:uid' , component:AddVideoComponent},
   {path:'edit-video' , component:EditVideoComponent},
-  {path:'videos-list' , component:VideosListComponent}
+  {path:'videos-list' , component:VideosListComponent},
+  {path:'play/:vid' , component:PlayVideoComponent}
 
 ];
 

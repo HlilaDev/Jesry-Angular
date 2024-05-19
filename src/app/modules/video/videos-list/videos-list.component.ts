@@ -23,19 +23,7 @@ export class VideosListComponent implements OnInit{
   getAllVideos(){
     this.videoservices.getAllVideos().subscribe((res)=>{
       this.videos = res
-      this.videos.forEach((video:{course:any,courseName:any}) => {
-        if(video.course){
-          this.courseservice.getCourseById(video.course).subscribe((res)=>{
-
-            const course = res as {title:any}
-            video.courseName = course.title
-
-          })
-
-        }
-  
-        
-      });
+    
     })
   }
 

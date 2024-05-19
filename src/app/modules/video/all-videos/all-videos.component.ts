@@ -32,7 +32,9 @@ getAllVideo(){
     this.allVideos =res
   })
 }
-  playvideo(videoId:string){}
+  playvideo(videoId:string){
+    this.router.navigate([`/vids/play/${videoId}`])
+  }
 
   searchVideos() {
     this.videoservices.seachVideosByQuerry(this.searchTerm).subscribe(
