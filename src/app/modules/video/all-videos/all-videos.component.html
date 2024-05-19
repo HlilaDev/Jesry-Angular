@@ -16,9 +16,9 @@
   </div>
   <!----fin search -->
   <div class="categories">
-    <span [ngClass]="{ active: selectedCourse === null }"
-      ><a (click)="filterByCourse('')">Tous</a></span
-    >
+    <span [ngClass]="{ active: selectedCourse === null }">
+      <a (click)="filterByCourse('')">Tous</a>
+    </span>
     <span
       *ngFor="let item of courses"
       [ngClass]="{ active: selectedCourse === item._id }"

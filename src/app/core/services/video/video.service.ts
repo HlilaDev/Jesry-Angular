@@ -15,8 +15,8 @@ export class VideoService {
     return this.http.post(API_URLS.videos.addVideo, newVideo)
   }
 
-  getAllVideos(){
-    return this.http.get(API_URLS.videos.allVideos)
+  getAllVideos(page: number, pageSize: number){
+    return this.http.get(`${API_URLS.videos.allVideos}?page=${page}&pageSize=${pageSize}`)
   }
 
   editVideo(videoId:any,newVideo:any){

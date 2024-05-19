@@ -21,10 +21,10 @@ export class VideosListComponent implements OnInit{
   }
 
   getAllVideos(){
-    this.videoservices.getAllVideos().subscribe((res)=>{
-      this.videos = res
+    // this.videoservices.getAllVideos().subscribe((res)=>{
+    //   this.videos = res
     
-    })
+    // })
   }
 
   onAddVideo(){
