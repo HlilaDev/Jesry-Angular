@@ -1,0 +1,143 @@
+<!-- Button trigger modal -->
+<button
+  type="button"
+  class="btn btn-info mb-3"
+  data-bs-toggle="modal"
+  data-bs-target="#staticBackdrop"
+>
+  Ajouter une note
+</button>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="staticBackdrop"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Ajouter une Note</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <form action="">
+        <div class="modal-body">
+          <label>Titre</label>
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            [(ngModel)]="note.title"
+          />
+          <div>
+            <label class="form-label">Decriptions</label>
+            <textarea
+              [(ngModel)]="note.description"
+              class="form-control"
+              name="description"
+              rows="3"
+              style="height: 84px"
+            ></textarea>
+          </div>
+          <label>Color Choice</label>
+          <!--color-->
+          <div
+            class="btn-group"
+            role="group"
+            aria-label="Basic radio toggle button group"
+          >
+            <input
+              type="radio"
+              class="btn-check"
+              name="btnradio"
+              id="btnradio1"
+              checked
+              [(ngModel)]="selectedColor"
+              value="bg-secondary"
+            />
+            <label class="btn btn-outline-secondary" for="btnradio1"></label>
+            <input
+              type="radio"
+              class="btn-check"
+              name="btnradio"
+              id="btnradio2"
+              checked
+              autocomplete="off"
+              [(ngModel)]="selectedColor"
+              value="bg-info"
+            />
+            <label class="btn btn-outline-info" for="btnradio2"></label>
+            <input
+              type="radio"
+              class="btn-check"
+              name="btnradio"
+              id="btnradio3"
+              autocomplete="off"
+              [(ngModel)]="selectedColor"
+              value="bg-danger"
+            />
+            <label class="btn btn-outline-danger" for="btnradio3"></label>
+            <input
+              type="radio"
+              class="btn-check"
+              name="btnradio"
+              id="btnradio4"
+              autocomplete="off"
+              [(ngModel)]="selectedColor"
+              value="bg-success"
+            />
+            <label class="btn btn-outline-success" for="btnradio4"></label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Annuler
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="onAddNote()"
+            data-bs-dismiss="modal"
+          >
+            Ajouter
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!---my notes-->
+<div class="mynotes">
+  <div class="note col-sm-6 col-lg-4 mb-4" *ngFor="let item of notes">
+    <div class="delete-note" (click)="deleteNote(item._id)">
+      <i class="bi bi-x-circle-fill"></i>
+    </div>
+    <div class="card text-white text-center p-3" [class]="item.color">
+      <figure class="p-3 mb-0">
+        <figcaption
+          class="blockquote-footer mb-0"
+          style="color: aliceblue; font-size: 1.5em; text-transform: uppercase"
+        >
+          <span>{{ item.title }}</span>
+        </figcaption>
+        <blockquote class="blockquote">
+          <p>{{ item.description }}</p>
+        </blockquote>
+      </figure>
+    </div>
+  </div>
+</div>

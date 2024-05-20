@@ -16,7 +16,8 @@ const routes: Routes = [
       {path:'sections' , loadChildren:()=>import('../section/section.module').then(m=>m.SectionModule)},
       {path:'courses' , loadChildren:()=>import('../courses/courses.module').then(m=>m.CoursesModule)},
       {path:'users' , loadChildren:()=>import('../users/users.module').then(m=>m.UsersModule) , canActivate:[adminGuard]},
-      {path:'favs' , component:FavoritesComponent}
+      {path:'favs' , component:FavoritesComponent},
+      {path:'mynotes' , loadChildren:()=> import('../notes/notes.module').then(m=>m.NotesModule)}
 
 
 

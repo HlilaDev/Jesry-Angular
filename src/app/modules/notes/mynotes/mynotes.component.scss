@@ -1,0 +1,26 @@
+.mynotes{
+    display: flex;
+    flex-wrap: wrap;
+    gap:20px
+}
+
+.note{
+    position: relative;
+    width: 300px;
+}
+
+.delete-note{
+    position: absolute;
+    top: -5px;
+    right: 0;
+    color: rgb(255, 255, 255);
+    font-size: 1.5em;
+    z-index: 999;
+    cursor: pointer;
+    display: none;
+}
+
+.note:hover .delete-note{
+    display: block;
+}
+

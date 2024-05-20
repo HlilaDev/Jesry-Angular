@@ -89,7 +89,6 @@ export const API_URLS ={
         removeFav:`${BASE_API_URL}/favs/removeFromFavorites/`,
         getFavsByUserId:`${BASE_API_URL}/favs/`,
 
-
     },
 
     courses:{

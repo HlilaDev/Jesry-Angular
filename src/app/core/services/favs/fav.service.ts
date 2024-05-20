@@ -14,4 +14,13 @@ export class FavService {
 
   }
 
+
+  addFav(newVideo:any ,userId:string){
+    
+    return this.http.post(API_URLS.favs.addFav+newVideo , userId)
+  }
+
+  removeFav(newVideo:any ,userId:string){
+    return this.http.post(API_URLS.favs.removeFav+newVideo , userId)
+  }
 }

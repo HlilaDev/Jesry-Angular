@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { FavService } from 'src/app/core/services/favs/fav.service';
 import { VideoService } from 'src/app/core/services/video/video.service';
 
 @Component({
@@ -10,11 +12,14 @@ import { VideoService } from 'src/app/core/services/video/video.service';
 export class PlayVideoComponent implements OnInit {
   video: any;
   relatedVideos: any;
+  videoId:any;
 
   constructor(
     private videoService: VideoService,
     private act: ActivatedRoute,
-    private router: Router
+    private router: Router ,
+    private fav:FavService,
+    private auth:AuthService
   ) {}
 
   ngOnInit(): void {
@@ -66,6 +71,12 @@ export class PlayVideoComponent implements OnInit {
   }
 
   addToFav(): void {
-    // Add to favorites functionality here
-  }
+    const userId = this.auth.getUserIDFromToken()  
+   this.videoId = this.video?._id
+this.fav.addFav(this.videoId, userId).subscribe((res)=>{
+  console.log('video added to favorites !');
+  
+})
+
+}
 }

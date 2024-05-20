@@ -39,7 +39,10 @@ export class NavbarComponent implements OnInit{
   goToFav(userId:any){
     this.router.navigate([`/favs`])
   }
-  goToMyNotes(){}
+  goToMyNotes(){
+    this.router.navigate([`/mynotes`])
+
+  }
 
   addVideo(userId:any){
     this.router.navigate([`/vids/add-video/${userId}`])
