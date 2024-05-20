@@ -3,8 +3,8 @@
     <div class="video-play-card">
       <video
         id="myVideo"
-        width="700"
-        height="400"
+        width="100%"
+        height="350px"
         controls
         [src]="'http://localhost:3000/uploads/videos/' + video?.url"
       >
@@ -15,25 +15,24 @@
       </div>
       <div class="video-detail">
         <div class="author">
-          <img
-            [src]="'http://localhost:3000/uploads/' + video?.author?.imageUrl"
-            alt=""
-          />
-          <span>{{ video?.author.fullName }}</span>
+          <span class="p-2">{{ video?.course.title }}</span>
+          <span class="subscribe">S'abonner</span>
         </div>
         <div class="video-detail2">
           <div class="likes" (click)="addLike()">
-            <i class="bi bi-heart-fill"></i>
+            <i class="bi bi-hand-thumbs-up"></i>
+            <i class="bi bi-hand-thumbs-up-fill"></i>
             <span>{{ video?.likes }}</span>
           </div>
           <div class="addFav">
-            <span (click)="addToFav()">Add to favorites</span>
             <i class="bi bi-star"></i>
+            <i class="bi bi-star-fill"></i>
+            <span (click)="addToFav()">Ajouter aux Favories</span>
           </div>
         </div>
       </div>
       <div class="video-desc">
-        <h4>Description :</h4>
+        <span>123 vues | il y a 1 heure</span>
         <p>{{ video?.description }}</p>
       </div>
     </div>

@@ -1,10 +1,10 @@
 <div class="container-xxl flex-grow-1 container-p-y">
   <!----search -->
-  <div class="input-group mb-3 col-3">
+  <div class="input-group mb-3 col-12 col-md-6 col-lg-4">
     <input
       type="text"
       class="form-control"
-      placeholder="Rechercher des videos..."
+      placeholder="Rechercher des vidéos..."
       [(ngModel)]="searchTerm"
       (keyup.enter)="searchVideos()"
     />
@@ -15,6 +15,7 @@
     </div>
   </div>
   <!----fin search -->
+
   <div class="categories">
     <span [ngClass]="{ active: selectedCourse === null }">
       <a (click)="filterByCourse('')">Tous</a>
@@ -28,24 +29,27 @@
   </div>
 
   <div class="row">
-    <div class="col-md-4" *ngFor="let item of allVideos">
-      <div class="card mb-4 overflow-auto" style="min-height: 300px">
+    <div class="col-md-4 col-lg-3" *ngFor="let item of allVideos">
+      <div class="video-card">
         <div class="video-container">
-          <video
-            [src]="'http://localhost:3000/uploads/' + item.url"
-            class="card-video"
-            (click)="playvideo(item._id)"
-          ></video>
-          <i class="bi bi-play-circle-fill"></i>
+          <div class="video-wrapper">
+            <video
+              [src]="'http://localhost:3000/uploads/videos/' + item.url"
+              class="card-video"
+              (click)="playvideo(item._id)"
+            ></video>
+            <i class="bi bi-play-circle-fill"></i>
+          </div>
         </div>
-      </div>
-      <h5 class="card-header">{{ item?.title }}</h5>
-      <div class="author">
-        <img
-          [src]="'http://localhost:3000/uploads/' + item?.author?.imageUrl"
-          alt=""
-        />
-        <span>{{ item?.author.fullName }}</span>
+        <h5 class="video-title">{{ item?.title }}</h5>
+        <div class="author">
+          <img
+            [src]="'http://localhost:3000/uploads/' + item?.author?.imageUrl"
+            alt=""
+            class="author-img"
+          />
+          <span class="author-name">{{ item?.author.fullName }}</span>
+        </div>
       </div>
     </div>
   </div>

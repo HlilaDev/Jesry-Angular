@@ -13,16 +13,20 @@ export class PlayVideoComponent implements OnInit {
   video: any;
   relatedVideos: any;
   videoId:any;
+  userId:any;
+  isLiked:boolean = false;
 
   constructor(
     private videoService: VideoService,
     private act: ActivatedRoute,
     private router: Router ,
     private fav:FavService,
-    private auth:AuthService
+    private auth:AuthService 
   ) {}
 
   ngOnInit(): void {
+    this.videoId = this.act.snapshot.paramMap.get('vid')
+    this.userId = this.auth.getUserIDFromToken() 
     // Subscribe to route parameters to handle changes
     this.act.params.subscribe(params => {
       const videoId = params['vid'];
@@ -36,7 +40,6 @@ export class PlayVideoComponent implements OnInit {
     this.videoService.getVideoById(videoId).subscribe(
       (res) => {
         this.video = res;
-        console.log(res);
         
         this.getVideosByCourseId();
       },
@@ -47,11 +50,11 @@ export class PlayVideoComponent implements OnInit {
   }
 
   getVideosByCourseId(): void {
-    const courseId = this.video?.course;
+    const courseId = this.video?.course._id;
     if (courseId) {
       this.videoService.getVideosByCourse(courseId).subscribe(
         (relatedRes) => {
-          this.relatedVideos = relatedRes;
+          this.relatedVideos = relatedRes;          
         },
         (error) => {
           console.error('Error fetching related videos', error);
@@ -71,9 +74,8 @@ export class PlayVideoComponent implements OnInit {
   }
 
   addToFav(): void {
-    const userId = this.auth.getUserIDFromToken()  
-   this.videoId = this.video?._id
-this.fav.addFav(this.videoId, userId).subscribe((res)=>{
+    
+this.fav.addFav(this.videoId, this.userId).subscribe((res)=>{
   console.log('video added to favorites !');
   
 })

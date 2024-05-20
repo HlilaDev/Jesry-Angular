@@ -59,7 +59,6 @@ export class AllVideosComponent implements OnInit {
     this.videoService.seachVideosByQuerry(this.searchTerm).subscribe(
       (res: any) => {
         this.allVideos = res;
-        console.log(res);
       },
       (error) => {
         console.error(error);
@@ -73,7 +72,6 @@ export class AllVideosComponent implements OnInit {
     if (courseId) {
       this.videoService.getVideosByCourse(courseId).subscribe((res) => {
         this.allVideos = res;
-        console.log(this.allVideos);
       });
     } else {
       this.page = 1;

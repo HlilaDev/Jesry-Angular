@@ -1,0 +1,22 @@
+<div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+  <div class="col" *ngFor="let item of myfavs">
+    <div class="card h-100">
+      <i
+        (click)="removeFav(item._id)"
+        class="remove-fav bi bi-x-circle-fill"
+      ></i>
+
+      <video
+        style="cursor: pointer"
+        [src]="'http://localhost:3000/uploads/' + item.url"
+        (click)="clickFavVideo(item._id)"
+      ></video>
+      <div class="card-body">
+        <h5 class="card-title">{{ item.title }}</h5>
+        <p class="card-text">
+          {{ item.category }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,55 +1,108 @@
-.author img{
-  border-radius: 50%;
-  width: 35px;
-  height: 35px;
+/* Search bar */
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group .form-control {
+  border-radius: 0.25rem;
+}
+
+.input-group .btn-info {
+  border-radius: 0.25rem;
+}
+
+/* Categories */
+.categories {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 12px;
+}
+
+.categories span {
+  background-color: #222;
+  color: #f0f0f0;
+  border-radius: 12px;
+  padding: 5px 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.categories span:hover {
+  background-color: #676767;
+  cursor: pointer;
+}
+
+.categories .active {
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+}
+
+/* Video card */
+.video-card {
+  margin-bottom: 20px;
 }
 
 .video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio (modify as needed) */
-    height: 0;
-    cursor: pointer;
-  }
-
-  .video-container video{
-    border-radius: 10px;
-  }
-  
-  .card-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .video-container:hover{
-    opacity: 0.7;
-  }
-  
-.categories{
-  margin-bottom: 20px;
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 10px;
+  width: 100%;
 }
-  .categories span{
-    background-color: rgb(34, 34, 34);
-    color: aliceblue;
-    border-radius: 12px;
-    padding: 3px 8px;
-    margin-right: 10px;
-    
 
-  }
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  overflow: hidden;
+  border-radius: 12px;
 
-  .categories span:hover{
-    background-color: rgb(103, 103, 103);
-    color: aliceblue;
-    cursor: pointer;
-    
+}
 
-  }
+.video-wrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the container */
+}
 
-  .categories .active {
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    cursor: pointer;
-  }
+.video-container i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  color: rgba(255, 255, 255, 0.8);
+  display: none;
+}
+
+.video-container:hover i {
+  display: block;
+}
+
+.video-title {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+}
+
+.author-img {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+.author-name {
+  font-size: 0.8rem;
+  color: #555;
+}

@@ -84,10 +84,11 @@ export const API_URLS ={
         removeLike:`${BASE_API_URL}/likes/unlikeVideo/`,
     },
 
+    
     favs:{
         addFav:`${BASE_API_URL}/favs/addToFavorites/`,
         removeFav:`${BASE_API_URL}/favs/removeFromFavorites/`,
-        getFavsByUserId:`${BASE_API_URL}/favs/`,
+        getFavsByUserId:`${BASE_API_URL}/favs/favsByUser/`,
 
     },
 
