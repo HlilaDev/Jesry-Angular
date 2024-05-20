@@ -37,7 +37,7 @@ export class NavbarComponent implements OnInit{
   toProfile(userId:any){}
 
   goToFav(userId:any){
-    this.router.navigate([`/favs`])
+    this.router.navigate([`/myfavs`])
   }
   goToMyNotes(){
     this.router.navigate([`/mynotes`])

@@ -15,7 +15,7 @@ export class FavService {
   }
 
 
-  addFav(newVideo:any ,userId:string){
+  addFav(newVideo:any ,userId:any){
     
     return this.http.post(API_URLS.favs.addFav+newVideo , userId)
   }
