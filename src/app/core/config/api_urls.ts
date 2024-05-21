@@ -34,6 +34,9 @@ export const API_URLS ={
     getFullVideoById:`${BASE_API_URL}/videos/fullVideos/`,
     toggleLike:`${BASE_API_URL}/videos/toggleLike/`,  // !!!!!!!!!!
     searchVideoByQuerry:`${BASE_API_URL}/videos/search?q=`,
+    incrementViews:`${BASE_API_URL}/videos/incrementViews`,
+
+
     },
 
     //Docs API
@@ -80,8 +83,11 @@ export const API_URLS ={
     },
 
     likes:{
-        addLike:`${BASE_API_URL}/likes/likeVideo/`,
-        removeLike:`${BASE_API_URL}/likes/unlikeVideo/`,
+        addLike:`${BASE_API_URL}/likes/likeVideo`,
+        removeLike:`${BASE_API_URL}/likes/unlikeVideo`,
+        isLiked:`${BASE_API_URL}/likes/isLiked`,
+
+
     },
 
     

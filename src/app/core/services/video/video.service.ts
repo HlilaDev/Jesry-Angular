@@ -52,12 +52,12 @@ export class VideoService {
     return this.http.get(API_URLS.videos.searchVideoByQuerry+querry)
   }
 
-  addLike(videoId:any){
-    return this.http.post(API_URLS.likes.addLike,videoId)
+  addLike(userId:any, videoId:any){
+    return this.http.post(`${API_URLS.likes.addLike}/${userId}/${videoId}`,{})
   }
 
-  removeLike(videoId:any){
-    return this.http.post(API_URLS.likes.removeLike,videoId)
+  removeLike(userId:any,videoId:any){
+    return this.http.delete(`${API_URLS.likes.addLike}/${userId}/${videoId}`)
   }
 
   addFav(videoId:any){
@@ -66,5 +66,13 @@ export class VideoService {
 
   removeFav(videoId:any){
     return this.http.post(API_URLS.favs.removeFav,videoId)
+  }
+
+  incrementViews(videoId:any){
+    return this.http.post(`${API_URLS.videos.incrementViews}/${videoId}`,{})
+  }
+
+  isLiked(userId:any,videoId:any){
+    return this.http.get(`${API_URLS.likes.isLiked}/${userId}/${videoId}`)
   }
 }

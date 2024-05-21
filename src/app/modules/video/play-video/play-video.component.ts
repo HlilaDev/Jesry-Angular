@@ -17,6 +17,7 @@ export class PlayVideoComponent implements OnInit {
   userId: any;
   isSubscribed: boolean = false;
   showUnsubscribeConfirm: boolean = false;
+  isLiked: boolean = false;
 
   constructor(
     private videoService: VideoService,
@@ -45,6 +46,8 @@ export class PlayVideoComponent implements OnInit {
         this.video = res;
         this.checkSubscriptionStatus(); // Check subscription status after getting video details
         this.getVideosByCourseId();
+        this.incrementViews();
+        this.checkIfLiked()
       },
       (error) => {
         console.error('Error fetching video by ID', error);
@@ -98,12 +101,37 @@ export class PlayVideoComponent implements OnInit {
     });
   }
 
+  incrementViews(){
+    this.videoService.incrementViews(this.videoId).subscribe()
+  }
+
   confirmUnsubscribe(): void {
     this.showUnsubscribeConfirm = true;
   }
 
   addLike(): void {
-    // Add like functionality here
+    if (this.isLiked) {
+      this.videoService.removeLike(this.userId, this.videoId).subscribe(() => {
+        this.isLiked = false;
+        this.video.likes--;
+      });
+    } else {
+      this.videoService.addLike(this.userId, this.videoId).subscribe(() => {
+        this.isLiked = true;
+        this.video.likes++;
+      });
+    }
+  }
+
+  checkIfLiked(): void {
+    this.videoService.isLiked(this.userId, this.videoId).subscribe(
+      (res: any) => {
+        this.isLiked = res
+      },
+      (error) => {
+        console.error('Error checking if video is liked', error);
+      }
+    );
   }
 
   addToFav(): void {

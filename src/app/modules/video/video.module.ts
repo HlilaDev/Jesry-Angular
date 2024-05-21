@@ -8,6 +8,7 @@ import { AllVideosComponent } from './all-videos/all-videos.component';
 import { FormsModule } from '@angular/forms';
 import { VideosListComponent } from './videos-list/videos-list.component';
 import { PlayVideoComponent } from './play-video/play-video.component';
+import { TimeAgoPipe } from 'src/app/shared/pipes/timeAgo/time-ago.pipe';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { PlayVideoComponent } from './play-video/play-video.component';
     AllVideosComponent,
     VideosListComponent,
     PlayVideoComponent,
+    TimeAgoPipe
   ],
   imports: [
     CommonModule,
