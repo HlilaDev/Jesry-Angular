@@ -14,9 +14,17 @@
         <h3>{{ video?.title }}</h3>
       </div>
       <div class="video-detail">
-        <div class="author">
+        <div class="course">
           <span class="p-2">{{ video?.course.title }}</span>
-          <span class="subscribe">S'abonner</span>
+          <span *ngIf="!isSubscribed" class="subscribe" (click)="subscribe()"
+            >S'abonner</span
+          >
+          <span
+            *ngIf="isSubscribed"
+            class="subscribe unsubscribe"
+            (click)="confirmUnsubscribe()"
+            >Abonné</span
+          >
         </div>
         <div class="video-detail2">
           <div class="likes" (click)="addLike()">
@@ -27,7 +35,7 @@
           <div class="addFav">
             <i class="bi bi-star"></i>
             <i class="bi bi-star-fill"></i>
-            <span (click)="addToFav()">Ajouter aux Favories</span>
+            <span (click)="addToFav()">Ajouter aux Favoris</span>
           </div>
         </div>
       </div>
@@ -55,4 +63,13 @@
       </div>
     </div>
   </div>
+</div>
+
+<!-- Unsubscribe Confirmation Modal -->
+<div *ngIf="showUnsubscribeConfirm" class="unsubscribe-confirm">
+  <p>Etes-vous sûr de vouloir vous désinscrire ?</p>
+  <button class="btn confirm-btn mr-3" (click)="unsubscribe()">Oui</button>
+  <button class="btn cancel-btn" (click)="showUnsubscribeConfirm = false">
+    Non
+  </button>
 </div>

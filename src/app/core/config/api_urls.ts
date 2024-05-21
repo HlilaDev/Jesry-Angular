@@ -86,9 +86,10 @@ export const API_URLS ={
 
     
     favs:{
-        addFav:`${BASE_API_URL}/favs/addToFavorites/`,
-        removeFav:`${BASE_API_URL}/favs/removeFromFavorites/`,
-        getFavsByUserId:`${BASE_API_URL}/favs/favsByUser/`,
+        addFav:`${BASE_API_URL}/favs/addToFavorites`,
+        removeFav:`${BASE_API_URL}/favs/removeFromFavorites`,
+        getFavsByUserId:`${BASE_API_URL}/favs/favsByUser`,
+
 
     },
 
@@ -99,6 +100,10 @@ export const API_URLS ={
         updateCourse:`${BASE_API_URL}/courses/edit-course/`,
         allCourses:`${BASE_API_URL}/courses/allCourses/`,
         coursesBySection:`${BASE_API_URL}/courses/coursesBySection/`,
+        onSubscribe:`${BASE_API_URL}/courses/subscribe`,
+        onUnSubscribe:`${BASE_API_URL}/courses/unsubscribe`,
+        isSubscribed:`${BASE_API_URL}/courses/isSubscribed`,
+
 
     },
 

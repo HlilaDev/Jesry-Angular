@@ -19,6 +19,7 @@ export class MyfavsComponent implements OnInit {
 
   getMyFavs(){
     this.userId = this.auth.getUserIDFromToken();
+    console.log(this.userId); 
     this.favservices.getFavListById(this.userId).subscribe((res)=>{
       this.myfavs = res 
       console.log(res);

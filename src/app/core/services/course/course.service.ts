@@ -33,4 +33,18 @@ export class CourseService {
   getCoursesBySection(sectionId:string){
     return this.http.get(API_URLS.courses.coursesBySection+sectionId)
   }
+
+
+  onSubscribe(userId:any,courseId:any){
+    return this.http.post(`${API_URLS.courses.onSubscribe}/${userId}/${courseId}` , {})
+  }
+
+  onUnSubscribe(userId:any,courseId:any){
+    return this.http.delete(`${API_URLS.courses.onUnSubscribe}/${userId}/${courseId}`)
+  }
+
+
+  isSubscribed(userId:any,courseId:any){
+    return this.http.get(`${API_URLS.courses.isSubscribed}/${userId}/${courseId}`)
+  }
 }

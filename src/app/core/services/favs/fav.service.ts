@@ -10,17 +10,18 @@ export class FavService {
   constructor(private http:HttpClient) { }
 
   getFavListById(userId:any){
-   return this.http.get(API_URLS.favs.getFavsByUserId+userId)
+   return this.http.get(`${API_URLS.favs.getFavsByUserId}/${userId}`)
 
   }
 
 
-  addFav(newVideo:any ,userId:any){
+  addFav(userId:any,videoId:any ){
     
-    return this.http.post(API_URLS.favs.addFav+newVideo , userId)
+    return this.http.post(`${API_URLS.favs.addFav}/${userId}/${videoId}`,{})
   }
 
-  removeFav(newVideo:any ,userId:string){
-    return this.http.post(API_URLS.favs.removeFav+newVideo , userId)
+  removeFav(userId:any , videoId:any ){
+    return this.http.delete(`${API_URLS.favs.addFav}/${userId}/${videoId}`)
   }
+
 }
