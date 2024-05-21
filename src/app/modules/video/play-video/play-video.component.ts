@@ -14,7 +14,6 @@ export class PlayVideoComponent implements OnInit {
   relatedVideos: any;
   videoId:any;
   userId:any;
-  isLiked:boolean = false;
 
   constructor(
     private videoService: VideoService,
