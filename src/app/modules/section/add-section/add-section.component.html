@@ -16,7 +16,12 @@
     <div class="descriptions">
       <label for="level">Niveau</label>
 
-      <select name="level" id="level" [(ngModel)]="section.level">
+      <select
+        class="form-control"
+        name="level"
+        id="level"
+        [(ngModel)]="section.level"
+      >
         <option value="bac">Baccalauréat</option>
         <option value="licence">Licence</option>
         <option value="master">Master</option>

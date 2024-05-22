@@ -1,6 +1,9 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { CourseService } from 'src/app/core/services/course/course.service';
+import { SubscribeService } from 'src/app/core/services/subscribes/subscribe.service';
+import { UserService } from 'src/app/core/services/user/user.service';
 import { VideoService } from 'src/app/core/services/video/video.service';
 
 @Component({
@@ -13,23 +16,34 @@ export class AllVideosComponent implements OnInit {
   searchTerm: any;
   courses: any;
   selectedCourse: any = null;
+  mySubscriptions: any;
 
   // Scroll infinite
   page = 1;
   pageSize = 9;
   isLoading = false;
 
-  constructor(private videoService: VideoService, private courseService: CourseService, private router: Router) {}
+  constructor(private videoService: VideoService,private auth:AuthService ,private subscribeservices:SubscribeService ,private courseService: CourseService, private router: Router , private userservice:UserService) {}
 
   ngOnInit(): void {
     this.getAllCourses();
     this.loadVideos();
+    this.getMySubscriptions()
   }
 
   getAllCourses() {
     this.courseService.getAllCourses().subscribe((res) => {
       this.courses = res;
     });
+  }
+
+  getMySubscriptions(){
+    const userId = this.auth.getUserIDFromToken()
+    
+    this.subscribeservices.getSubscribesById(userId).subscribe((res:any)=>{
+      this.mySubscriptions = res   
+
+    })
   }
 
   loadVideos() {

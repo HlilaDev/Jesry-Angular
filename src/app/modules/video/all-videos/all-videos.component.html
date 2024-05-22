@@ -21,7 +21,7 @@
       <a (click)="filterByCourse('')">Tous</a>
     </span>
     <span
-      *ngFor="let item of courses"
+      *ngFor="let item of mySubscriptions"
       [ngClass]="{ active: selectedCourse === item._id }"
     >
       <a (click)="filterByCourse(item._id)">{{ item?.title }}</a>

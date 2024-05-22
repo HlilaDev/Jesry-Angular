@@ -1,0 +1,33 @@
+<p>Modifier un proverbe</p>
+<div class="col-8">
+  <form action="">
+    <div class="author">
+      <label>Auteur</label>
+      <input
+        type="text"
+        class="form-control"
+        name="title"
+        [(ngModel)]="Quote.author"
+      />
+    </div>
+
+    <div class="quote">
+      <label>Proverbe</label>
+      <textarea
+        rows="7"
+        class="form-control"
+        name="description"
+        [(ngModel)]="Quote.description"
+      ></textarea>
+    </div>
+
+    <div class="buttons">
+      <button type="button" class="btn btn-success mt-3" (click)="editQuote()">
+        Modifier
+      </button>
+      <button type="button" class="btn btn-danger mt-3" (click)="cancelEdit()">
+        Annuler
+      </button>
+    </div>
+  </form>
+</div>

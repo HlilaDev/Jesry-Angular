@@ -2,20 +2,18 @@
   <div class="col" *ngFor="let item of myfavs">
     <div class="card h-100">
       <i
-        (click)="removeFav(item._id)"
+        (click)="removeFav(item.videoId._id)"
         class="remove-fav bi bi-x-circle-fill"
       ></i>
 
       <video
+        (click)="clickFavVideo(item.videoId._id)"
         style="cursor: pointer"
-        [src]="'http://localhost:3000/uploads/' + item.url"
-        (click)="clickFavVideo(item._id)"
+        [src]="'http://localhost:3000/uploads/videos/' + item.videoId.url"
       ></video>
       <div class="card-body">
-        <h5 class="card-title">{{ item.title }}</h5>
-        <p class="card-text">
-          {{ item.category }}
-        </p>
+        <h5 class="card-title">{{ item.videoId.title }}</h5>
+        <p class="card-text">{{ item.videoId.views }} vues</p>
       </div>
     </div>
   </div>

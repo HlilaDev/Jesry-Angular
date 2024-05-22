@@ -127,6 +127,11 @@ export const API_URLS ={
         
 
     },
+
+    subscribes:{
+        getSubscribesById:`${BASE_API_URL}/subscribes/getSubscribesById`,
+
+    }
    
     
    

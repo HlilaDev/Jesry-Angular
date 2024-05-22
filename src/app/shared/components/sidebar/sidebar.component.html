@@ -92,13 +92,25 @@
 
     <li
       class="menu-item"
-      *ngIf="user?.role == 0"
+      *ngIf="user?.role == 'admin'"
       [ngClass]="{ active: activeMenu === 'quotes' }"
       (click)="activeMenu = 'quotes'"
     >
       <a routerLink="quotes" class="menu-link">
         <i class="bi bi-file-earmark-medical"></i>
         <div class="menu-title">Gestion des quotes</div>
+      </a>
+    </li>
+
+    <!-- my section -->
+    <li
+      class="menu-item"
+      [ngClass]="{ active: activeMenu === 'mySection' }"
+      (click)="activeMenu = 'mySection'"
+    >
+      <a (click)="MySection()" class="menu-link">
+        <i class="bi bi-play-btn"></i>
+        <div class="menu-title">Ma Section</div>
       </a>
     </li>
 

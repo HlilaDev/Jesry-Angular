@@ -35,7 +35,12 @@
 
     <div class="level">
       <label for="level">Niveau</label>
-      <select class="form-control" name="level" id="level" (change)="onLevelChange($event)">
+      <select
+        class="form-control"
+        name="level"
+        id="level"
+        (change)="onLevelChange($event)"
+      >
         <option value="bac">Baccalauréat</option>
         <option value="licence">Licence</option>
         <option value="master">Mastère</option>
@@ -46,6 +51,15 @@
     <div class="section">
       <label for="section">Section</label>
       <select class="form-control" name="section" [(ngModel)]="Doc.section">
+        <option *ngFor="let item of sections" [value]="item._id">
+          {{ item.title }}
+        </option>
+      </select>
+    </div>
+
+    <div class="course">
+      <label for="course">Cours</label>
+      <select class="form-control" name="course" [(ngModel)]="Doc.section">
         <option *ngFor="let item of sections" [value]="item._id">
           {{ item.title }}
         </option>
