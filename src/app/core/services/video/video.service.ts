@@ -57,7 +57,7 @@ export class VideoService {
   }
 
   removeLike(userId:any,videoId:any){
-    return this.http.delete(`${API_URLS.likes.addLike}/${userId}/${videoId}`)
+    return this.http.delete(`${API_URLS.likes.removeLike}/${userId}/${videoId}`)
   }
 
 
