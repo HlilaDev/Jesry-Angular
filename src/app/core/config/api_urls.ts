@@ -95,6 +95,10 @@ export const API_URLS ={
         addFav:`${BASE_API_URL}/favs/addToFavorites`,
         removeFav:`${BASE_API_URL}/favs/removeFromFavorites`,
         getFavsByUserId:`${BASE_API_URL}/favs/favsByUser`,
+        isFav:`${BASE_API_URL}/favs/isFav`,
+
+
+
 
 
     },
@@ -119,6 +123,8 @@ export const API_URLS ={
         deleteSection:`${BASE_API_URL}/sections/delete-section/`,
         updateSection:`${BASE_API_URL}/sections/edit-section/`,
         allSections:`${BASE_API_URL}/sections/allsections/`,
+        getSectionsByLevel:`${BASE_API_URL}/sections/sectionsByLevel/`,
+        
 
     },
    

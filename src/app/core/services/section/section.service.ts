@@ -26,5 +26,9 @@ export class SectionService {
     return this.http.delete(API_URLS.sections.deleteSection+sectionId)
   }
 
+  getSectionByLevel(level:string){
+    return this.http.get(API_URLS.sections.getSectionsByLevel+level)
+  }
+
 
 }

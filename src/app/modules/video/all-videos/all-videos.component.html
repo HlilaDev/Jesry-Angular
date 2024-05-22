@@ -41,13 +41,9 @@
           </div>
         </div>
         <h5 class="video-title">{{ item?.title }}</h5>
-        <div class="author">
-          <img
-            [src]="'http://localhost:3000/uploads/' + item?.author?.imageUrl"
-            alt=""
-            class="author-img"
-          />
-          <span class="author-name">{{ item?.author.fullName }}</span>
+        <div class="info">
+          <span>{{ item?.course.title }}</span>
+          <span>{{ item?.views }} vues</span>
         </div>
       </div>
     </div>

@@ -17,7 +17,9 @@ export class PlayVideoComponent implements OnInit {
   userId: any;
   isSubscribed: boolean = false;
   showUnsubscribeConfirm: boolean = false;
+  showRemoveFromFavConfirm: boolean = false;
   isLiked: boolean = false;
+  isFav: boolean = false;
 
   constructor(
     private videoService: VideoService,
@@ -29,7 +31,6 @@ export class PlayVideoComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.videoId = this.act.snapshot.paramMap.get('vid');
     this.userId = this.auth.getUserIDFromToken();
     // Subscribe to route parameters to handle changes
     this.act.params.subscribe(params => {
@@ -44,10 +45,13 @@ export class PlayVideoComponent implements OnInit {
     this.videoService.getVideoById(videoId).subscribe(
       (res) => {
         this.video = res;
+        this.videoId = this.video?._id;
+
         this.checkSubscriptionStatus(); // Check subscription status after getting video details
         this.getVideosByCourseId();
         this.incrementViews();
-        this.checkIfLiked()
+        this.checkIfLiked();
+        this.checkIfFav();
       },
       (error) => {
         console.error('Error fetching video by ID', error);
@@ -101,32 +105,36 @@ export class PlayVideoComponent implements OnInit {
     });
   }
 
-  incrementViews(){
-    this.videoService.incrementViews(this.videoId).subscribe()
+  incrementViews(): void {
+    this.videoService.incrementViews(this.videoId).subscribe();
   }
 
   confirmUnsubscribe(): void {
     this.showUnsubscribeConfirm = true;
   }
 
+  confirmRemoveFromFav(): void {
+    this.showRemoveFromFavConfirm = true;
+  }
+
   addLike(): void {
-    if (this.isLiked) {
-      this.videoService.removeLike(this.userId, this.videoId).subscribe(() => {
-        this.isLiked = false;
-        this.video.likes--;
-      });
-    } else {
-      this.videoService.addLike(this.userId, this.videoId).subscribe(() => {
-        this.isLiked = true;
-        this.video.likes++;
-      });
-    }
+    this.videoService.addLike(this.userId, this.videoId).subscribe(() => {
+      this.isLiked = true;
+      this.video.likes++;
+    });
+  }
+
+  removeLike(): void {
+    this.videoService.removeLike(this.userId, this.videoId).subscribe(() => {
+      this.isLiked = false;
+      this.video.likes--;
+    });
   }
 
   checkIfLiked(): void {
     this.videoService.isLiked(this.userId, this.videoId).subscribe(
       (res: any) => {
-        this.isLiked = res
+        this.isLiked = res;
       },
       (error) => {
         console.error('Error checking if video is liked', error);
@@ -134,9 +142,25 @@ export class PlayVideoComponent implements OnInit {
     );
   }
 
+  checkIfFav(): void {
+    this.fav.isFav(this.userId, this.videoId).subscribe((res: any) => {
+      this.isFav = res;
+    });
+  }
+
   addToFav(): void {
-    this.fav.addFav(this.videoId, this.userId).subscribe((res) => {
-      console.log('Video added to favorites!');
+  
+
+    this.fav.addFav(this.userId ,this.videoId ).subscribe(() => {
+      this.isFav = true;
+    });
+  }
+
+  removeFromFav(): void {
+  
+    this.fav.removeFav(this.userId ,this.videoId).subscribe(() => {
+      this.isFav = false;
+      this.showRemoveFromFavConfirm = false;
     });
   }
 }

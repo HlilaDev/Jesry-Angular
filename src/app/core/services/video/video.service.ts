@@ -60,13 +60,6 @@ export class VideoService {
     return this.http.delete(`${API_URLS.likes.addLike}/${userId}/${videoId}`)
   }
 
-  addFav(videoId:any){
-    return this.http.post(API_URLS.favs.addFav,videoId)
-  }
-
-  removeFav(videoId:any){
-    return this.http.post(API_URLS.favs.removeFav,videoId)
-  }
 
   incrementViews(videoId:any){
     return this.http.post(`${API_URLS.videos.incrementViews}/${videoId}`,{})

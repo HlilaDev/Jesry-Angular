@@ -1,2 +1,10 @@
-<p>all-docs works!</p>
-<h1>role: {{ role }}</h1>
+<button class="btn btn-info" (click)="addNewDoc()">Add new Doc</button>
+
+<div class="card" *ngFor="let item of docs" style="width: 18rem">
+  <div class="card-body">
+    <h5 class="card-title">{{ item.title }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{ item.course }}</h6>
+    <p class="card-text">{{ item.section }}</p>
+    <a [href]="item.url" class="card-link" target="_blank">View PDF</a>
+  </div>
+</div>

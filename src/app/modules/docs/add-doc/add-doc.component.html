@@ -33,11 +33,21 @@
       ></textarea>
     </div>
 
-    <div class="category">
-      <label for="category">Catégorie</label>
-      <select class="form-control" name="category" [(ngModel)]="Doc.category">
-        <option *ngFor="let category of categories" [value]="category._id">
-          {{ category.title }}
+    <div class="level">
+      <label for="level">Niveau</label>
+      <select class="form-control" name="level" id="level" (change)="onLevelChange($event)">
+        <option value="bac">Baccalauréat</option>
+        <option value="licence">Licence</option>
+        <option value="master">Mastère</option>
+        <option value="doctorat">Doctorat</option>
+      </select>
+    </div>
+
+    <div class="section">
+      <label for="section">Section</label>
+      <select class="form-control" name="section" [(ngModel)]="Doc.section">
+        <option *ngFor="let item of sections" [value]="item._id">
+          {{ item.title }}
         </option>
       </select>
     </div>

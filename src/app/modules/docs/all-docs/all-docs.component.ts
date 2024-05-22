@@ -1,23 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { DocService } from 'src/app/core/services/doc/doc.service';
 
 @Component({
   selector: 'app-all-docs',
   templateUrl: './all-docs.component.html',
   styleUrls: ['./all-docs.component.scss']
 })
-export class AllDocsComponent {
+export class AllDocsComponent implements OnInit{
   role:any
+  docs:any
 
-  constructor(private auth:AuthService){
-    this.getRole()
+  constructor(private auth:AuthService , private docservices:DocService , private router:Router){
+    
+  }
+  ngOnInit(): void {
+    this.getAllDocs()
   }
 
 
 
-  getRole(){
-    this.role = this.auth.getUserRoleFromToken()
-   }
+ getAllDocs(){
+  this.docservices.getAllDocs().subscribe((res)=>{
+    this.docs = res
+  })
+
+ }
+
+ addNewDoc():void{
+  this.router.navigate(['/docs/add-doc'])
+}
 
 
 }

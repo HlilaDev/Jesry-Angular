@@ -21,7 +21,9 @@ export class FavService {
   }
 
   removeFav(userId:any , videoId:any ){
-    return this.http.delete(`${API_URLS.favs.addFav}/${userId}/${videoId}`)
+    return this.http.delete(`${API_URLS.favs.removeFav}/${userId}/${videoId}`)
   }
-
+  isFav(userId:any , videoId:any ){
+    return this.http.get(`${API_URLS.favs.isFav}/${userId}/${videoId}`)
+  }
 }

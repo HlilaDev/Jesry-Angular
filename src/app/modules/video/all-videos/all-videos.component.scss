@@ -90,19 +90,11 @@
   margin-bottom: 5px;
 }
 
-.author {
+.info {
   display: flex;
-  align-items: center;
+  justify-content: space-between;
 }
 
-.author-img {
-  border-radius: 50%;
-  width: 25px;
-  height: 25px;
-  margin-right: 10px;
-}
 
-.author-name {
-  font-size: 0.8rem;
-  color: #555;
-}
+
+

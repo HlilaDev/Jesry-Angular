@@ -16,34 +16,42 @@
       <div class="video-detail">
         <div class="course">
           <span class="p-2">{{ video?.course.title }}</span>
-          <span *ngIf="!isSubscribed" class="subscribe" (click)="subscribe()"
-            >S'abonner</span
-          >
+          <span *ngIf="!isSubscribed" class="subscribe" (click)="subscribe()">
+            S'abonner
+          </span>
           <span
             *ngIf="isSubscribed"
             class="subscribe unsubscribe"
             (click)="confirmUnsubscribe()"
-            >Abonné</span
           >
+            Abonné
+          </span>
         </div>
         <div class="video-detail2">
-          <div class="likes" (click)="addLike()">
+          <div class="likes">
             <i
               *ngIf="!isLiked"
               class="bi bi-hand-thumbs-up"
               aria-hidden="true"
+              (click)="addLike()"
             ></i>
             <i
               *ngIf="isLiked"
               class="bi bi-hand-thumbs-up-fill"
               aria-hidden="true"
+              (click)="removeLike()"
             ></i>
             <span>{{ video?.likes }}</span>
           </div>
           <div class="addFav">
-            <i class="bi bi-star"></i>
-            <i class="bi bi-star-fill"></i>
-            <span (click)="addToFav()">Ajouter aux Favoris</span>
+            <span *ngIf="!isFav">
+              <i class="bi bi-star" (click)="addToFav()"></i> Ajouter aux
+              Favoris
+            </span>
+            <span *ngIf="isFav">
+              <i class="bi bi-star-fill" (click)="confirmRemoveFromFav()"></i>
+              Rétirer des Favoris
+            </span>
           </div>
         </div>
       </div>
@@ -55,7 +63,7 @@
   </div>
 
   <div class="related-area col-4 p-3">
-    <h4>Related videos :</h4>
+    <h4>Vidéos associées :</h4>
     <div class="related-video" *ngFor="let item of relatedVideos">
       <div class="video-item">
         <video
@@ -78,6 +86,15 @@
   <p>Etes-vous sûr de vouloir vous désinscrire ?</p>
   <button class="btn confirm-btn mr-3" (click)="unsubscribe()">Oui</button>
   <button class="btn cancel-btn" (click)="showUnsubscribeConfirm = false">
+    Non
+  </button>
+</div>
+
+<!-- Remove Fav Confirmation Modal -->
+<div *ngIf="showRemoveFromFavConfirm" class="removefav-confirm">
+  <p>Etes-vous sûr de vouloir rétirer des Favoris ?</p>
+  <button class="btn confirm-btn mr-3" (click)="removeFromFav()">Oui</button>
+  <button class="btn cancel-btn" (click)="showRemoveFromFavConfirm = false">
     Non
   </button>
 </div>
