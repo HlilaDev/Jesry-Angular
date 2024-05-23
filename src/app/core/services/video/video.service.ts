@@ -68,4 +68,8 @@ export class VideoService {
   isLiked(userId:any,videoId:any){
     return this.http.get(`${API_URLS.likes.isLiked}/${userId}/${videoId}`)
   }
+
+  getNotifications(userId:any){
+    return this.http.get(`${API_URLS.videos.getNotifications}/${userId}`)
+  }
 }

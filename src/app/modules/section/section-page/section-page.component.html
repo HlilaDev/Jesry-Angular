@@ -1,24 +1,26 @@
 <div class="container">
   <!-- Banner Section -->
-  <div class="banner bg-primary text-white text-center py-5">
-    <h1>Bienvenue dans la page de votre section</h1>
+  <div class="banner bg-info text-white text-center py-5">
+    <h1>{{ section?.title }}</h1>
     <p>Améliorez vos connaissances avec nos cours sélectionnés</p>
   </div>
 
   <!-- Section Header with Image and Name -->
   <div class="section-header text-center my-5">
-    <h2 class="section-name">{{ section?.title }}</h2>
+    <h2 class="section-name">Listes des Matières</h2>
   </div>
 
   <!-- Courses Section -->
   <div class="row">
     <!--add course--->
     <div class="col-md-4">
-      <div class="course card mb-4 bg-info">
+      <div class="course card mb-4 bg-warning">
         <div class="card-body">
-          <h5 class="card-title">Ajouter un Cours</h5>
+          <h5 class="card-title text-white">Ajouter une Matière</h5>
           <p class="card-text">Description of course 1.</p>
-          <a (click)="addCourse()" class="btn btn-primary">Ajouter</a>
+          <a (click)="addCourse()" class="btn btn-primary text-white"
+            >Ajouter</a
+          >
         </div>
       </div>
     </div>

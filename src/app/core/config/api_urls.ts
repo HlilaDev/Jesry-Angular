@@ -35,6 +35,10 @@ export const API_URLS ={
     toggleLike:`${BASE_API_URL}/videos/toggleLike/`,  // !!!!!!!!!!
     searchVideoByQuerry:`${BASE_API_URL}/videos/search?q=`,
     incrementViews:`${BASE_API_URL}/videos/incrementViews`,
+    getNotifications:`${BASE_API_URL}/videos/notifications`,
+
+
+
 
 
     },

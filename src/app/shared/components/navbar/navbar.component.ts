@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { UserService } from 'src/app/core/services/user/user.service';
+import { VideoService } from 'src/app/core/services/video/video.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,9 +11,13 @@ import { UserService } from 'src/app/core/services/user/user.service';
 })
 export class NavbarComponent implements OnInit{
   @Input() user:any ;
+  nbNotifications:number=0;
+  notifications:any
+  userId:any
 
-  constructor(private userservice:UserService , private router:Router , private auth:AuthService ){}
+  constructor(private userservice:UserService , private router:Router ,private videoservices:VideoService , private auth:AuthService ){}
   ngOnInit(): void {
+    this.getNotifications()
     
   }
 
@@ -41,6 +46,17 @@ export class NavbarComponent implements OnInit{
 
   editProfile(){
     this.router.navigate([`/profile/edit-profile/${this.user._id}`])
+  }
+
+  getNotifications(){
+    this.userId = this.auth.getUserIDFromToken()
+    this.videoservices.getNotifications(this.userId).subscribe((res:any)=>{
+ this.notifications = res
+ this.nbNotifications = this.notifications.length
+
+ 
+ 
+    })
   }
 
 }

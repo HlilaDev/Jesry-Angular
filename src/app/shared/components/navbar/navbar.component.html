@@ -30,8 +30,16 @@
         <a (click)="goToMyNotes()"> <i class="bi bi-sticky-fill"></i></a>
         <div class="hover-menu">Notes</div>
       </li>
-      <li class="navbar-item">
-        <a href="#"><i class="bi bi-bell-fill"></i></a>
+      <li class="navbar-item position-relative">
+        <a href="#"
+          ><i class="bi bi-bell-fill"></i>
+          <!-- <span class="badge badge-notification">3</span> -->
+          <span
+            *ngIf="nbNotifications > 0"
+            class="badge badge-notification flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20"
+            >{{ nbNotifications }}</span
+          >
+        </a>
         <div class="hover-menu">Notifications</div>
       </li>
 
