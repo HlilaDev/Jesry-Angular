@@ -8,25 +8,16 @@ import { UserService } from 'src/app/core/services/user/user.service';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent {
   @Input() user: any;
   activeMenu:string='Dashboard';
   role:any
-  constructor(private auth:AuthService , private router:Router , private userservices:UserService){this.getRole() }
-  ngOnInit(): void {
-    this.getUserById()
-  }
+  constructor( private router:Router){ }
+ 
 
-  getRole(){
-    this.role = this.auth.getUserRoleFromToken()
-  }
+ 
 
-  getUserById(){
-    
-    this.userservices.getUserById(this.user._id).subscribe((res)=>{
-      this.user = res
-    })
-  }
+ 
 
 
   MySection(){

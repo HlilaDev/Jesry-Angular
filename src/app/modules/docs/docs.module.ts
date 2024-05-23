@@ -6,6 +6,7 @@ import { AddDocComponent } from './add-doc/add-doc.component';
 import { EditDocComponent } from './edit-doc/edit-doc.component';
 import { AllDocsComponent } from './all-docs/all-docs.component';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     DocsRoutingModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ]
 })
 export class DocsModule { }

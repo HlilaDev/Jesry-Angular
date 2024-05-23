@@ -9,6 +9,7 @@ import { UserService } from 'src/app/core/services/user/user.service';
 })
 export class HomepageComponent implements OnInit {
   user:any
+  title: string | undefined;
 
   constructor(private auth:AuthService , private userservices:UserService){}
 

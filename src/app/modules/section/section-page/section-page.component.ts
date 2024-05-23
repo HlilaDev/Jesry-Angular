@@ -29,4 +29,9 @@ getSectionById(){
 }
 
 
+addCourse(){
+  this.router.navigate([`/courses/add-course/${this.sectionId}`])
+}
+
+
 }

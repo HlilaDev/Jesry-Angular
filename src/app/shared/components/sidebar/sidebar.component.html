@@ -1,7 +1,9 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
   <div class="app-brand demo">
     <a routerLink="/home" class="app-brand-link">
-      <span class="app-brand-text demo menu-text fw-bolder ms-2">Jesry</span>
+      <span class="app-brand-text demo menu-text fw-bolder ms-2"
+        >Jesry | جسري</span
+      >
     </a>
 
     <a
@@ -30,7 +32,7 @@
     <!-- Users -->
     <li
       class="menu-item"
-      *ngIf="role == 'admin'"
+      *ngIf="user?.role == 'admin'"
       [ngClass]="{ active: activeMenu === 'users' }"
       (click)="activeMenu = 'users'"
     >
@@ -42,7 +44,7 @@
     <!-- all products -->
     <li
       class="menu-item"
-      *ngIf="role == 'admin'"
+      *ngIf="user?.role == 'admin'"
       [ngClass]="{ active: activeMenu === 'section' }"
       (click)="activeMenu = 'section'"
     >
@@ -56,7 +58,7 @@
 
     <li
       class="menu-item"
-      *ngIf="role == 'admin'"
+      *ngIf="user?.role == 'admin'"
       [ngClass]="{ active: activeMenu === 'course' }"
       (click)="activeMenu = 'course'"
     >

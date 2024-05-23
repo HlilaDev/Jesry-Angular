@@ -12,22 +12,27 @@
 
   <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
     <!-- Search -->
-
+    <li>
+      <i class="bi bi-plus-circle"></i>
+      <a (click)="addVideo()">Ajouter un Video</a>
+      <div class="hover-menu fav-hover">Ajouter un Video</div>
+    </li>
     <!-- /Search -->
 
     <ul class="navbar-nav flex-row align-items-center ms-auto">
       <!-- Place this tag where you want the button to render. -->
-      <li style="margin-right: 20px">
-        <i class="bi bi-plus-circle"></i>
-        <a (click)="addVideo()">Ajouter un Video</a>
+
+      <li class="navbar-item">
+        <a (click)="goToFav(user._id)"><i class="bi bi-star-fill"></i></a>
+        <div class="hover-menu">Favories</div>
       </li>
-      <li style="margin-right: 20px">
-        <i class="bi bi-star-fill"> </i>
-        <a (click)="goToFav(user._id)">Favorites</a>
+      <li class="navbar-item">
+        <a (click)="goToMyNotes()"> <i class="bi bi-sticky-fill"></i></a>
+        <div class="hover-menu">Notes</div>
       </li>
-      <li style="margin-right: 20px">
-        <i class="bi bi-sticky-fill"></i>
-        <a (click)="goToMyNotes()">Mes Notes</a>
+      <li class="navbar-item">
+        <a href="#"><i class="bi bi-bell-fill"></i></a>
+        <div class="hover-menu">Notifications</div>
       </li>
 
       <!-- User -->

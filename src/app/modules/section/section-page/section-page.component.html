@@ -1,18 +1,12 @@
 <div class="container">
   <!-- Banner Section -->
   <div class="banner bg-primary text-white text-center py-5">
-    <h1>Welcome to the Educative Section</h1>
-    <p>Enhance your knowledge with our curated courses</p>
+    <h1>Bienvenue dans la page de votre section</h1>
+    <p>Améliorez vos connaissances avec nos cours sélectionnés</p>
   </div>
 
   <!-- Section Header with Image and Name -->
   <div class="section-header text-center my-5">
-    <img
-      src="assets/section-image.jpg"
-      alt="Section Image"
-      class="img-fluid rounded-circle mb-3"
-      style="width: 150px; height: 150px"
-    />
     <h2 class="section-name">{{ section?.title }}</h2>
   </div>
 
@@ -24,8 +18,7 @@
         <div class="card-body">
           <h5 class="card-title">Ajouter un Cours</h5>
           <p class="card-text">Description of course 1.</p>
-          <a href="#" class="btn btn-primary">Documents</a>
-          <a href="#" class="videos btn btn-secondary">Vidéos</a>
+          <a (click)="addCourse()" class="btn btn-primary">Ajouter</a>
         </div>
       </div>
     </div>

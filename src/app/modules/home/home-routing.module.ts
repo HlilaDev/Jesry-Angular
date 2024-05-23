@@ -10,7 +10,7 @@ const routes: Routes = [
     component: HomepageComponent, 
     children: [
       { path: 'dashboard', component:DashboardComponent },
-      {path:'docs' , loadChildren:()=>import('../docs/docs.module').then(m=>m.DocsModule)},
+      {path:'docs' , loadChildren:()=>import('../docs/docs.module').then(m=>m.DocsModule) , data:{ title: 'Documents |' }},
       {path:'vids' , loadChildren:()=>import('../video/video.module').then(m=>m.VideoModule)},
       {path:'sections' , loadChildren:()=>import('../section/section.module').then(m=>m.SectionModule)},
       {path:'courses' , loadChildren:()=>import('../courses/courses.module').then(m=>m.CoursesModule)},

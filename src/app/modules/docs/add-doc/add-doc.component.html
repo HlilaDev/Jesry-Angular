@@ -86,8 +86,13 @@
     </div>
 
     <div class="buttons-form">
-      <button type="button" class="btn btn-success mt-3" (click)="addDoc()">
-        submit
+      <button
+        [disabled]="!requiredRules"
+        type="button"
+        class="btn btn-success mt-3"
+        (click)="addDoc()"
+      >
+        Ajouter
       </button>
       <button type="button" class="btn btn-info mt-3" (click)="cancelAddDoc()">
         Annuler

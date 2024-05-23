@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { API_URLS } from '../../config/api_urls';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,9 +16,11 @@ export class DocService {
     return this.http.post(API_URLS.docs.addDoc , newDoc)
   }
 
-  getAllDocs(){
-    return this.http.get(API_URLS.docs.getAllDocs)
+  getAllDocs():Observable <any>{
+    
+    return this.http.get(API_URLS.docs.getAllDocs )
   }
+
 
   deleteDoc(docId:any){
     return this.http.delete(API_URLS.docs.deleteDoc+docId)
