@@ -1,0 +1,40 @@
+.notification-banner {
+    position: absolute;
+    top: calc(100% + 10px); /* Adjust this value to position the component relative to the notification icon */
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 250px; /* Adjust width as needed */
+  }
+  
+  .notification-header {
+    background-color: #f0f0f0;
+    padding: 8px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .notification-header h4 {
+    margin: 0;
+  }
+  
+  .notification-body {
+    padding: 5px;
+    font-size: 12px;;
+  }
+  
+  .notification-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .notification-item {
+    padding: 3px 0;
+  }
+  
+  .notification-message {
+    color: #333;
+  }
+  

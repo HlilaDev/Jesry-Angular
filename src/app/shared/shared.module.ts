@@ -1,17 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { QuoteComponent } from './components/quote/quote.component';
+import { NotificationsComponent } from './components/notifications/notifications.component';
 
 
 
 
 @NgModule({
   declarations: [
+    NotificationsComponent
   
-    QuoteComponent
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    NotificationsComponent,
+    // other components
   ]
 })
 export class SharedModule { }

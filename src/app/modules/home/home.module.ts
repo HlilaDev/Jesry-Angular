@@ -6,6 +6,7 @@ import { NavbarComponent } from 'src/app/shared/components/navbar/navbar.compone
 import { FooterComponent } from 'src/app/shared/components/footer/footer.component';
 import { SidebarComponent } from 'src/app/shared/components/sidebar/sidebar.component';
 import { DocsModule } from '../docs/docs.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DocsModule } from '../docs/docs.module';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    DocsModule
+    DocsModule,
+    SharedModule
   ]
 })
 export class HomeModule { }

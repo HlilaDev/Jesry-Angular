@@ -14,6 +14,8 @@ export class NavbarComponent implements OnInit{
   nbNotifications:number=0;
   notifications:any
   userId:any
+  showNotifications: boolean = false; // State variable to toggle notification visibility
+
 
   constructor(private userservice:UserService , private router:Router ,private videoservices:VideoService , private auth:AuthService ){}
   ngOnInit(): void {
@@ -53,10 +55,15 @@ export class NavbarComponent implements OnInit{
     this.videoservices.getNotifications(this.userId).subscribe((res:any)=>{
  this.notifications = res
  this.nbNotifications = this.notifications.length
+ console.log(this.notifications);
+ 
 
  
  
     })
   }
 
+  toggleNotifications(): void {
+    this.showNotifications = !this.showNotifications;
+  }
 }

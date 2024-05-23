@@ -30,9 +30,9 @@
         <a (click)="goToMyNotes()"> <i class="bi bi-sticky-fill"></i></a>
         <div class="hover-menu">Notes</div>
       </li>
-      <li class="navbar-item position-relative">
-        <a href="#"
-          ><i class="bi bi-bell-fill"></i>
+      <li class="navbar-item position-relative" (click)="toggleNotifications()">
+        <a>
+          <i class="bi bi-bell-fill"></i>
           <!-- <span class="badge badge-notification">3</span> -->
           <span
             *ngIf="nbNotifications > 0"
@@ -41,6 +41,10 @@
           >
         </a>
         <div class="hover-menu">Notifications</div>
+        <app-notifications
+          *ngIf="showNotifications"
+          [notifications]="notifications"
+        ></app-notifications>
       </li>
 
       <!-- User -->

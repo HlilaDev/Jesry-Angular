@@ -1,0 +1,15 @@
+<div class="notification-banner">
+  <div class="notification-header">
+    <h4>Notifications</h4>
+  </div>
+  <div class="notification-body">
+    <ul class="notification-list">
+      <li class="notification-item" *ngFor="let item of notifications">
+        <span class="notification-message">{{ item.title }}</span>
+        <hr />
+      </li>
+
+      <!-- Add more notification items as needed -->
+    </ul>
+  </div>
+</div>
