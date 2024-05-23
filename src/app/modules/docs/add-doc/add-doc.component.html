@@ -36,7 +36,7 @@
     <div class="level">
       <label for="level">Niveau</label>
       <select
-        class="form-control"
+        class="select2 form-select"
         name="level"
         id="level"
         (change)="onLevelChange($event)"
@@ -50,7 +50,12 @@
 
     <div class="section">
       <label for="section">Section</label>
-      <select class="form-control" name="section" [(ngModel)]="Doc.section">
+      <select
+        class="select2 form-select"
+        name="section"
+        [(ngModel)]="Doc.section"
+        (change)="onSectionChange($event)"
+      >
         <option *ngFor="let item of sections" [value]="item._id">
           {{ item.title }}
         </option>
@@ -59,8 +64,12 @@
 
     <div class="course">
       <label for="course">Cours</label>
-      <select class="form-control" name="course" [(ngModel)]="Doc.section">
-        <option *ngFor="let item of sections" [value]="item._id">
+      <select
+        class="select2 form-select"
+        name="course"
+        [(ngModel)]="Doc.course"
+      >
+        <option *ngFor="let item of allCourses" [value]="item._id">
           {{ item.title }}
         </option>
       </select>

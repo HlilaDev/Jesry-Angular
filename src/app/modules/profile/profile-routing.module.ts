@@ -4,8 +4,8 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 
 const routes: Routes = [
-  {path:'', component:ProfilePageComponent },
-  {path:'edit-profile', component:EditProfileComponent}
+  {path:':uid', component:ProfilePageComponent },
+  {path:'edit-profile/:uid', component:EditProfileComponent}
 ];
 
 @NgModule({

@@ -24,6 +24,8 @@ export class AllDocsComponent implements OnInit{
  getAllDocs(){
   this.docservices.getAllDocs().subscribe((res)=>{
     this.docs = res
+    console.log(this.docs);
+    
   })
 
  }
@@ -31,6 +33,11 @@ export class AllDocsComponent implements OnInit{
  addNewDoc():void{
   this.router.navigate(['/docs/add-doc'])
 }
+
+
+EditUser(docId:any){}
+
+DeleteUser(docId:any){}
 
 
 }

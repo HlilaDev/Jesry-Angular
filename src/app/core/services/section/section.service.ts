@@ -30,5 +30,9 @@ export class SectionService {
     return this.http.get(API_URLS.sections.getSectionsByLevel+level)
   }
 
+  getSectionById(sectionId:string){
+    return this.http.get(API_URLS.sections.getSectionById+sectionId)
+  }
+
 
 }

@@ -1,10 +1,60 @@
-<button class="btn btn-info" (click)="addNewDoc()">Add new Doc</button>
+<button class="btn btn-info mb-3" (click)="addNewDoc()">
+  Ajouter un Document
+</button>
 
-<div class="card" *ngFor="let item of docs" style="width: 18rem">
-  <div class="card-body">
-    <h5 class="card-title">{{ item.title }}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">{{ item.course }}</h6>
-    <p class="card-text">{{ item.section }}</p>
-    <a [href]="item.url" class="card-link" target="_blank">View PDF</a>
+<div class="card">
+  <h5 class="card-header">Tous les Documents:</h5>
+  <div class="table-responsive text-nowrap">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>NB</th>
+          <th>Tittre</th>
+          <th>Cours</th>
+          <th>Fichier</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody class="table-border-bottom-0">
+        <tr *ngFor="let item of docs; let i = index">
+          <td>{{ i + 1 }}</td>
+
+          <td>
+            <i class="fab fa-angular fa-lg text-danger me-3"></i>
+            <strong class="text-capitalize">{{ item.title }}</strong>
+          </td>
+          <td>
+            <i class="fab fa-angular fa-lg text-danger me-3"></i>
+            <strong class="text-capitalize">{{ item.course.title }}</strong>
+          </td>
+
+          <td>
+            <a [href]="'http://localhost:3000/uploads/docs/' + item.url"
+              >Link</a
+            >
+          </td>
+
+          <td>
+            <div class="dropdown">
+              <button
+                type="button"
+                class="btn p-0 dropdown-toggle hide-arrow"
+                data-bs-toggle="dropdown"
+              >
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" (click)="EditUser(item._id)"
+                  ><i class="bx bx-edit-alt me-1"></i> Modifier</a
+                >
+                <a class="dropdown-item" (click)="DeleteUser(item._id)"
+                  ><i class="bx bx-trash me-1"></i> Supprimer</a
+                >
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

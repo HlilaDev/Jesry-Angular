@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { CourseService } from 'src/app/core/services/course/course.service';
 import { DocService } from 'src/app/core/services/doc/doc.service';
 import { SectionService } from 'src/app/core/services/section/section.service';
 
@@ -24,12 +25,24 @@ export class AddDocComponent implements  OnInit{
   categories:any
   role:any;
   sections:any
+  selectedSection:any
+  courses:any
+  allCourses:any
 
-  constructor(private auth:AuthService , private docservice:DocService , private router:Router , private sectionservices:SectionService){
+  constructor(private auth:AuthService , private docservice:DocService, private courseservices:CourseService , private router:Router , private sectionservices:SectionService){
     this.getRole()
   }
   ngOnInit(): void {
     this.getAllSections()
+    this.getAllCourses()
+  }
+
+  getRole(){
+    this.role = this.auth.getUserRoleFromToken()
+   }
+
+   onDocSelected(event:any){
+    this.selectedDoc = event.target.files[0]  
   }
 
   addDoc(){
@@ -43,18 +56,19 @@ export class AddDocComponent implements  OnInit{
     docForm.append('author', authorId)
     docForm.append('pdf', this.selectedDoc)
     this.docservice.addDoc(docForm).subscribe((res)=>{
-      this.router.navigate(['/allDocs'])
+      this.router.navigate(['/docs'])
     })
-  }
-
-  onDocSelected(event:any){
-    this.selectedDoc = event.target.files[0]
-    
   }
 
   getAllSections(){
     this.sectionservices.getAllSections().subscribe((res)=>{
       this.sections  = res     
+    })
+  }
+
+  getCoursesBySection(sectionId:any){
+    this.courseservices.getCoursesBySection(sectionId).subscribe((res)=>{
+      this.courses = res
     })
   }
 
@@ -75,8 +89,18 @@ export class AddDocComponent implements  OnInit{
     this.router.navigate(['/docs'])
   }
 
-  getRole(){
-    this.role = this.auth.getUserRoleFromToken()
-   }
+
+  onSectionChange(event:any){
+  this.selectedSection = event.target.value
+  if(this.selectedSection){
+    this.getCoursesBySection(this.selectedSection)
+  }
+  }
+
+  getAllCourses(){
+    this.courseservices.getAllCourses().subscribe((res)=>{
+      this.allCourses = res
+    })
+  }
 
 }

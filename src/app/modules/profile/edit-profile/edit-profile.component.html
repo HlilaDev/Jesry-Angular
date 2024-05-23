@@ -28,7 +28,7 @@
         <div class="card-body">
           <div class="d-flex align-items-start align-items-sm-center gap-4">
             <img
-              [src]="'http://localhost/3000/uploads/' + user?.imageUrl"
+              [src]="'http://localhost:3000/uploads/' + user?.imageUrl"
               alt="user-avatar"
               class="d-block rounded"
               height="100"
@@ -107,7 +107,7 @@
               </div>
               <div class="mb-3 col-md-6">
                 <label for="organization" class="form-label"
-                  >Organization</label
+                  >Faculté/Ecole</label
                 >
                 <input
                   type="text"
@@ -115,19 +115,37 @@
                   id="organization"
                   name="organization"
                   value="ThemeSelection"
+                  [(ngModel)]="user!.institution"
                 />
               </div>
 
               <div class="mb-3 col-md-6">
-                <label for="level" class="form-label">Niveau</label>
-                <input
-                  [(ngModel)]="user!.role"
-                  type="text"
-                  class="form-control"
-                  id="level"
+                <label for="level">Niveau</label>
+                <select
+                  class="select2 form-select"
                   name="level"
-                  placeholder="Niveau"
-                />
+                  id="level"
+                  (change)="onLevelChange($event)"
+                >
+                  <option value="bac">Baccalauréat</option>
+                  <option value="licence">Licence</option>
+                  <option value="master">Mastère</option>
+                  <option value="doctorat">Doctorat</option>
+                </select>
+              </div>
+
+              <div class="mb-3 col-md-6">
+                <label for="section" class="form-label">Section</label>
+                <select
+                  class="form-control"
+                  name="section"
+                  id="section"
+                  [(ngModel)]="user.section"
+                >
+                  <option *ngFor="let item of sections" [value]="item._id">
+                    {{ item.title }}
+                  </option>
+                </select>
               </div>
 
               <div class="mb-3 col-md-6">
@@ -178,12 +196,18 @@
                 type="checkbox"
                 name="accountActivation"
                 id="accountActivation"
+                (change)="onCheckboxChange($event)"
               />
               <label class="form-check-label" for="accountActivation"
                 >Je confirme la désactivation de mon compte</label
               >
             </div>
-            <button type="submit" class="btn btn-danger deactivate-account">
+            <button
+              type="submit"
+              class="btn btn-danger deactivate-account"
+              [disabled]="!isCheckboxChecked"
+              (click)="deleteAccount()"
+            >
               Désactiver le compte
             </button>
           </form>

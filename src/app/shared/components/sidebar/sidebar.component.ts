@@ -30,7 +30,7 @@ export class SidebarComponent implements OnInit {
 
 
   MySection(){
-    this.router.navigate([`/sections/section/${this.user.section}`])
+    this.router.navigate([`/sections/section/${this.user?.section}`])
 
 
   }

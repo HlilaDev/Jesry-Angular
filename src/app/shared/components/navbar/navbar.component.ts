@@ -17,15 +17,14 @@ export class NavbarComponent implements OnInit{
   }
 
 
-
-
-
   onLogout(){
   this.auth.removeTokenFromCookie()
   this.router.navigate(['/auth/login'])
   }
 
-  toProfile(userId:any){}
+  toProfile(){
+    this.router.navigate([`/profile/${this.user._id}`])
+  }
 
   goToFav(userId:any){
     this.router.navigate([`/myfavs`])
@@ -35,9 +34,13 @@ export class NavbarComponent implements OnInit{
 
   }
 
-  addVideo(userId:any){
-    this.router.navigate([`/vids/add-video/${userId}`])
+  addVideo(){
+    this.router.navigate([`/vids/add-video/${this.user._id}`])
 
+  }
+
+  editProfile(){
+    this.router.navigate([`/profile/edit-profile/${this.user._id}`])
   }
 
 }

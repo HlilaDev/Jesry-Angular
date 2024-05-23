@@ -20,7 +20,7 @@ export class AllVideosComponent implements OnInit {
 
   // Scroll infinite
   page = 1;
-  pageSize = 9;
+  pageSize = 12;
   isLoading = false;
 
   constructor(private videoService: VideoService,private auth:AuthService ,private subscribeservices:SubscribeService ,private courseService: CourseService, private router: Router , private userservice:UserService) {}

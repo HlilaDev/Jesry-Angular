@@ -1,1 +1,44 @@
-<h1>profile page</h1>
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header p-0">
+      <div class="banner">
+        <img
+          src="http://localhost:3000/uploads/images/uni/cgpr.jpg"
+          class="img-fluid w-100"
+          alt="Banner Image"
+        />
+      </div>
+      <div
+        class="profile-picture d-flex align-items-end position-relative"
+        style="height: 70px; margin-top: -50px"
+      >
+        <img
+          [src]="'http://localhost:3000/uploads/' + user?.imageUrl"
+          class="rounded-circle border border-3 border-white"
+          style="width: 100px; height: 100px"
+          alt="Profile Picture"
+        />
+        <div class="ms-3">
+          <h3 class="profile-name mb-0">{{ user?.fullName }}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Informations du Profil</h5>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <strong>Institution: </strong>{{ user?.institution }}
+        </li>
+
+        <li class="list-group-item"><strong>Niveau: </strong>Licence 3</li>
+        <li class="list-group-item">
+          <strong>Section: </strong>{{ user?.section }}
+        </li>
+        <li class="list-group-item">
+          <strong>Cours Inscrits: </strong>
+          <span *ngFor="let item of subscribes">{{ item.title }} ,</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
