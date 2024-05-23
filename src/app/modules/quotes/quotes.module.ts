@@ -7,6 +7,7 @@ import { SingleQuoteComponent } from './single-quote/single-quote.component';
 import { AddQuoteComponent } from './add-quote/add-quote.component';
 import { EditQuoteComponent } from './edit-quote/edit-quote.component';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     QuotesRoutingModule,
     FormsModule,
+    NgxPaginationModule
 
   ]
 })

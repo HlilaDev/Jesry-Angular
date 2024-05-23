@@ -9,37 +9,32 @@ import { QuoteService } from 'src/app/core/services/quote/quote.service';
 })
 export class AllQuotesComponent {
 
-  quotes:any
+  quotes: any;
+  page: number = 1;
 
-constructor(private quoteservice:QuoteService , private router:Router){}
+  constructor(private quoteservice: QuoteService, private router: Router) {}
+
   ngOnInit(): void {
-    this.getAllQuote()
+    this.getAllQuote();
   }
 
-getAllQuote(){
-  this.quoteservice.getAllQuotes().subscribe((res)=>{
-    this.quotes = res
-  })
-}
-
-  onAddQuote(){
-    this.router.navigate(['/quotes/add-quote'])
-
-  }
-  onDeleteQuote(id:any){
-
-      this.quoteservice.deleteQuote(id).subscribe((res)=>{
-        this.getAllQuote()
-      })
-      
-  
-
+  getAllQuote() {
+    this.quoteservice.getAllQuotes().subscribe((res) => {
+      this.quotes = res;
+    });
   }
 
-  onEditQuote(id:any){
-    this.router.navigate([`/quotes/edit-quote/${id}`])
-
-
+  onAddQuote() {
+    this.router.navigate(['/quotes/add-quote']);
   }
 
+  onDeleteQuote(id: any) {
+    this.quoteservice.deleteQuote(id).subscribe((res) => {
+      this.getAllQuote();
+    });
+  }
+
+  onEditQuote(id: any) {
+    this.router.navigate([`/quotes/edit-quote/${id}`]);
+  }
 }
