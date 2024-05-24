@@ -11,12 +11,13 @@
   </div>
 
   <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+    <a (click)="addVideo()"><i class="bi bi-grid-fill"></i></a>
+
     <!-- Search -->
-    <li>
-      <i class="bi bi-plus-circle"></i>
-      <a (click)="addVideo()">Ajouter un Video</a>
-      <div class="hover-menu fav-hover">Ajouter un Video</div>
-    </li>
+    <div class="search">
+      <i class="bi bi-search"></i>
+      <input class="seach-input" type="search" placeholder="Rechercher" />
+    </div>
     <!-- /Search -->
 
     <ul class="navbar-nav flex-row align-items-center ms-auto">

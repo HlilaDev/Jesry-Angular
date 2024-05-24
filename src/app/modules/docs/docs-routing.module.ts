@@ -9,7 +9,7 @@ const routes: Routes = [
 
     {path:'', component:AllDocsComponent},
     {path:'add-doc', component:AddDocComponent, canActivate:[adminModeratorGuard]},
-    {path:'edit-doc' , component:EditDocComponent, canActivate:[adminModeratorGuard]}
+    {path:'edit-doc/:did' , component:EditDocComponent, canActivate:[adminModeratorGuard]}
  
 ];
 

@@ -15,6 +15,7 @@
         <i class="bi bi-play-btn-fill"></i>
         <span class="notification-message">{{ item.title }}</span>
         <div class="info">{{ item.course.title }}</div>
+        <div>{{ item.date | date : "dd/MM" }}</div>
       </li>
     </ul>
   </div>

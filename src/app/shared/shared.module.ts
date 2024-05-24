@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NotificationsComponent } from './components/notifications/notifications.component';
+import { SearchBoxComponent } from './components/search-box/search-box.component';
 
 
 
@@ -8,6 +9,8 @@ import { NotificationsComponent } from './components/notifications/notifications
 @NgModule({
   declarations: [
     NotificationsComponent,
+    SearchBoxComponent,
+  
     
   
   ],

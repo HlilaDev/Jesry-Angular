@@ -11,33 +11,40 @@ import { DocService } from 'src/app/core/services/doc/doc.service';
 export class AllDocsComponent implements OnInit {
   role: any;
   docs: any[] = [];
+  totalPages: any;
+  currentPage: number = 1;
 
-
-  constructor(private auth: AuthService, private docservices: DocService, private router: Router) {}
+  constructor( private docService: DocService, private router: Router) {}
 
   ngOnInit(): void {
-    this.getAllDocs();
+    this.getDocs(this.currentPage);
   }
 
-  getAllDocs(): void {
-    this.docservices.getAllDocs().subscribe((res: any) => {
-      this.docs = res;
+  getDocs(page: number): void {
+    this.docService.getAllDocs(page).subscribe((res: any) => {
+      this.docs = res.docs;
+      this.totalPages = res.totalPages;
+      this.currentPage = res.currentPage;
       console.log(this.docs);
-      
     });
   }
-
- 
 
   addNewDoc(): void {
     this.router.navigate(['/docs/add-doc']);
   }
 
-  EditUser(docId: any) {
-    // Implement edit functionality
+  EditUser(docId: any): void {
+    this.router.navigate([`/docs/edit-doc/${docId}`])
   }
 
-  DeleteUser(docId: any) {
+  DeleteUser(docId: any): void {
     // Implement delete functionality
+  }
+
+  // Method to handle page change
+  changePage(page: number): void {
+    if (page > 0 && page <= this.totalPages) {
+      this.getDocs(page);
+    }
   }
 }

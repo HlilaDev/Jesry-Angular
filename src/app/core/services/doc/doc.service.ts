@@ -16,9 +16,10 @@ export class DocService {
     return this.http.post(API_URLS.docs.addDoc , newDoc)
   }
 
-  getAllDocs():Observable <any>{
-    
-    return this.http.get(API_URLS.docs.getAllDocs )
+  // Get all docs with pagination
+  getAllDocs(page: number = 1, limit: number = 8): Observable<any> {
+    const params = new HttpParams().set('page', page.toString()).set('limit', limit.toString());
+    return this.http.get(API_URLS.docs.getAllDocs, { params });
   }
 
 
