@@ -32,6 +32,11 @@
   
   .notification-item {
     padding: 3px 0;
+    border-bottom: 1px solid #dfdede;;
+  }
+
+  .notification-item:hover{
+    background-color: #dfdede;
   }
   
   .notification-message {

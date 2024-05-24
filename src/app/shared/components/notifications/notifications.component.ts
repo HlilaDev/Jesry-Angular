@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-notifications',
@@ -8,6 +9,14 @@ import { Component, Input } from '@angular/core';
 export class NotificationsComponent {
   @Input() notifications:any ;
 
-  constructor(){}
+  constructor(private router:Router){}
+
+
+  
+
+  goToNotif(videoId:any){
+    this.router.navigate([`/vids/play/${videoId}`])
+
+  }
 
 }

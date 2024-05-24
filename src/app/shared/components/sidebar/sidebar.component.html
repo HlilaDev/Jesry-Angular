@@ -145,12 +145,22 @@
     <!-- vidss -->
     <li
       class="menu-item"
-      [ngClass]="{ active: activeMenu === 'playlists' }"
-      (click)="activeMenu = 'playlists'"
+      [ngClass]="{ active: activeMenu === 'dictionary' }"
+      (click)="activeMenu = 'dictionary'"
     >
-      <a routerLink="playlists" class="menu-link">
-        <i class="bi bi-play-btn"></i>
-        <div class="menu-title">playlists</div>
+      <a routerLink="dictionary" class="menu-link">
+        <i class="bi bi-book-half"></i>
+        <div class="menu-title">Dictionaires</div>
+      </a>
+    </li>
+    <li
+      class="menu-item"
+      [ngClass]="{ active: activeMenu === 'sites' }"
+      (click)="activeMenu = 'sites'"
+    >
+      <a routerLink="sites" class="menu-link">
+        <i class="bi bi-browser-chrome"></i>
+        <div class="menu-title">Sites Utiles</div>
       </a>
     </li>
   </ul>
