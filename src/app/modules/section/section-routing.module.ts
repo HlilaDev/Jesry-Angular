@@ -10,7 +10,7 @@ const routes: Routes = [
   {path:'', component:AllSectionsComponent},
   {path:'add-section', component:AddSectionComponent, canActivate:[adminModeratorGuard]},
   {path:'edit-section/:sid', component:EditSectionComponent, canActivate:[adminModeratorGuard]},
-  {path:'section/:sid', component:SectionPageComponent},
+  {path:'my-section', component:SectionPageComponent},
 
 
 ];

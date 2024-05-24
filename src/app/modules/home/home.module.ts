@@ -7,6 +7,7 @@ import { FooterComponent } from 'src/app/shared/components/footer/footer.compone
 import { SidebarComponent } from 'src/app/shared/components/sidebar/sidebar.component';
 import { DocsModule } from '../docs/docs.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { DashboardModule } from '../dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     HomeRoutingModule,
     DocsModule,
-    SharedModule
+    SharedModule,
+    DashboardModule
   ]
 })
 export class HomeModule { }

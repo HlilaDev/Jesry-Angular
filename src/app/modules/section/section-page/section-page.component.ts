@@ -12,25 +12,25 @@ import { UserService } from 'src/app/core/services/user/user.service';
 export class SectionPageComponent  implements OnInit{
 
   section:any
-  sectionId:any
 
-  constructor(private act:ActivatedRoute , private userservices:UserService , private router:Router , private sectionservices:SectionService){}
+  constructor( private userservices:UserService, private auth:AuthService , private router:Router , private sectionservices:SectionService){}
   ngOnInit(): void {
-    this.getSectionById()
+    this.getSectionByUser()
   }
 
 
-getSectionById(){
-  this.sectionId = this.act.snapshot.paramMap.get('sid')
+  getSectionByUser(){
+    const userId = this.auth.getUserIDFromToken()
+    this.userservices.getUserById(userId).subscribe((res:any)=>{
+      this.section = res?.section
+    })
+  }
 
-  this.sectionservices.getSectionById(this.sectionId).subscribe((res)=>{
-    this.section = res
-  })
-}
+
 
 
 addCourse(){
-  this.router.navigate([`/courses/add-course/${this.sectionId}`])
+  this.router.navigate([`/courses/add-course/${this.section._id}`])
 }
 
 

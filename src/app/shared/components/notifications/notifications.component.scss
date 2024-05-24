@@ -1,45 +1,96 @@
 .notification-banner {
-    position: absolute;
-    top: calc(100% + 10px); /* Adjust this value to position the component relative to the notification icon */
-    right: 0;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 250px; /* Adjust width as needed */
-  }
-  
-  .notification-header {
-    background-color: #f0f0f0;
-    padding: 8px;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .notification-header h4 {
-    margin: 0;
-  }
-  
-  .notification-body {
-    padding: 5px;
-    font-size: 12px;;
-  }
-  
-  .notification-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .notification-item {
-    padding: 3px 0;
-    border-bottom: 1px solid #dfdede;;
-  }
+  position: absolute;
+  top: calc(100% + 10px); /* Adjust this value to position the component relative to the notification icon */
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 250px; /* Adjust width as needed */
+  max-height: 500px; /* Set maximum height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  z-index: 1000; /* Ensure the banner is on top of other elements */
+}
 
-  .notification-item:hover{
-    background-color: #dfdede;
+/* Scrollbar Styles */
+.notification-banner::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+}
+
+.notification-banner::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Track color */
+}
+
+.notification-banner::-webkit-scrollbar-thumb {
+  background-color: #888; /* Thumb color */
+  border-radius: 10px; /* Rounded corners */
+  border: 2px solid #f1f1f1; /* Padding around thumb */
+}
+
+.notification-banner::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Thumb color on hover */
+}
+
+.notification-header {
+  background-color: #f0f0f0;
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+}
+
+.notification-header h4 {
+  margin: 0;
+}
+
+.notification-body {
+  padding: 5px;
+  font-size: 12px;
+}
+
+.notification-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.notification-item {
+  padding: 10px;
+  border-bottom: 1px solid #dfdede;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.notification-item i {
+  font-size: 20px;
+  margin-right: 10px;
+  color: rgb(0, 0, 0);
+}
+
+.notification-item:hover {
+  background-color: #dfdede;
+}
+
+.notification-message {
+  color: #333;
+  flex-grow: 1; /* Ensure message takes up available space */
+}
+
+.info {
+  font-size: 10px;
+  color: #888;
+  margin-left: auto;
+}
+
+/* Firefox scrollbar styles */
+@-moz-document url-prefix() {
+  .notification-banner {
+    scrollbar-width: thin; /* Thin scrollbar */
+    scrollbar-color: #888 #f1f1f1; /* Thumb and track colors */
   }
-  
-  .notification-message {
-    color: #333;
-  }
-  
+}
+
+
+.no-notif{
+  font-size: 16px;
+  padding: 0px 10px;
+}

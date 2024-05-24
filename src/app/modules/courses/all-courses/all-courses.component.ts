@@ -22,6 +22,8 @@ export class AllCoursesComponent {
   getAllCourses(){
     this.courseservicse.getAllCourses().subscribe((res)=>{
       this.courses = res
+      console.log(this.courses);
+      
     })
   }
 

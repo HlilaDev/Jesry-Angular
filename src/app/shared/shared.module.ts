@@ -7,7 +7,8 @@ import { NotificationsComponent } from './components/notifications/notifications
 
 @NgModule({
   declarations: [
-    NotificationsComponent
+    NotificationsComponent,
+    
   
   ],
   imports: [

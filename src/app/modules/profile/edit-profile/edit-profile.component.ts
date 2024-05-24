@@ -57,4 +57,8 @@ this.getAllsections()
 
   }
 
+  cancelEdit(){
+    this.router.navigate([`/profile/${this.user._id}`])
+  }
+
 }

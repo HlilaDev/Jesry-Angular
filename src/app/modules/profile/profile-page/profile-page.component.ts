@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { SubscribeService } from 'src/app/core/services/subscribes/subscribe.service';
 import { UserService } from 'src/app/core/services/user/user.service';
@@ -14,7 +15,7 @@ export class ProfilePageComponent implements OnInit {
   subscribes:any
 
 
-  constructor(private auth:AuthService , private userservices:UserService , private subscribeservices:SubscribeService){}
+  constructor(private auth:AuthService , private userservices:UserService , private subscribeservices:SubscribeService , private router:Router){}
 
 
   ngOnInit(): void {
@@ -32,6 +33,11 @@ export class ProfilePageComponent implements OnInit {
     this.subscribeservices.getSubscribesById(this.userId).subscribe((res)=>{
       this.subscribes = res
     })
+  }
+
+  editProfile(userId:any){
+    this.router.navigate([`/profile/edit-profile/${this.userId}`])
+
   }
 
 }

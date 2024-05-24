@@ -1,2 +1,53 @@
-<p>dashboard works!</p>
-<h1>role: {{ role }}</h1>
+<div class="row">
+  <div class="col-lg-8 mb-4 order-0">
+    <div class="card">
+      <div class="d-flex align-items-end row">
+        <div class="col-sm-7">
+          <div class="card-body">
+            <h5 class="card-title text-primary">
+              Bienvenue {{ user?.fullName }} !
+            </h5>
+            <p class="mb-4">
+              Vous devez compléter vos données avec précision pour obtenir des
+              résultats de recherche appropriés.
+            </p>
+
+            <a class="btn btn-sm btn-outline-primary" (click)="goToProfile()"
+              >Voir Profile</a
+            >
+          </div>
+        </div>
+        <div class="col-sm-5 text-center text-sm-left">
+          <div class="card-body pb-0 px-0 px-md-4">
+            <img
+              src="../../../assets/img/hero.jpg"
+              height="200"
+              alt="View Badge User"
+              data-app-dark-img="illustrations/man-with-laptop-dark.png"
+              data-app-light-img="illustrations/man-with-laptop-light.png"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="card">
+      <div class="card bg-warning">
+        <div class="card-body">
+          <div
+            class="card-title d-flex align-items-start justify-content-between"
+          >
+            <div class="avatar flex-shrink-0">
+              <i class="bi bi-camera-video-fill"></i>
+            </div>
+          </div>
+          <span class="fw-semibold d-block mb-1">Total Videos:</span>
+          <h3 class="card-title mb-2">xxxxxxxxx</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-random-quote></app-random-quote>

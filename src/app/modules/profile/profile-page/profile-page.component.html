@@ -1,4 +1,7 @@
-<div class="container mt-5">
+<div class="container mt-2">
+  <button class="btn btn-outline-primary mb-2" (click)="editProfile(user?.id)">
+    Modifier Mon Profile
+  </button>
   <div class="card">
     <div class="card-header p-0">
       <div class="banner">
@@ -32,7 +35,7 @@
 
         <li class="list-group-item"><strong>Niveau: </strong>Licence 3</li>
         <li class="list-group-item">
-          <strong>Section: </strong>{{ user?.section }}
+          <strong>Section: </strong>{{ user?.section.title }}
         </li>
         <li class="list-group-item">
           <strong>Cours Inscrits: </strong>

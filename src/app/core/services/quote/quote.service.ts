@@ -30,4 +30,8 @@ addQuote(newQuote:any){
   return this.http.delete(API_URLS.quotes.deleteQuote+QuoteId)
  }
 
+ getRandomQuote(){
+  return this.http.get(API_URLS.quotes.getRandomeQuote)
+ }
+
 }

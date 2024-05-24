@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit,HostListener  } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { UserService } from 'src/app/core/services/user/user.service';
@@ -63,7 +63,17 @@ export class NavbarComponent implements OnInit{
     })
   }
 
-  toggleNotifications(): void {
+  toggleNotifications(event: Event) {
+    event.stopPropagation();
     this.showNotifications = !this.showNotifications;
+  }
+
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: Event) {
+    const clickedInside = (event.target as HTMLElement).closest('.navbar-item');
+    if (!clickedInside) {
+      this.showNotifications = false;
+    }
   }
 }

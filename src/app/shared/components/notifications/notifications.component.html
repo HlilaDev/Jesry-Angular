@@ -2,7 +2,10 @@
   <div class="notification-header">
     <h4>Notifications</h4>
   </div>
-  <div class="notification-body">
+  <div *ngIf="notifications.length == 0">
+    <span class="no-notif">Aucune notification..</span>
+  </div>
+  <div class="notification-body" *ngIf="notifications.length > 0">
     <ul class="notification-list">
       <li
         class="notification-item"
@@ -13,9 +16,6 @@
         <span class="notification-message">{{ item.title }}</span>
         <div class="info">{{ item.course.title }}</div>
       </li>
-      <hr />
-
-      <!-- Add more notification items as needed -->
     </ul>
   </div>
 </div>

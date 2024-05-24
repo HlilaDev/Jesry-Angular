@@ -1,0 +1,32 @@
+.quote-card {
+    background: #f9f9f9; /* Card background color */
+    border: 1px solid #e0e0e0; /* Border color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    max-width: 400px; /* Max width of the card */
+    margin: 20px auto; /* Center align and spacing */
+    padding: 20px; /* Padding inside the card */
+    text-align: center; /* Center text alignment */
+    font-family: 'Arial, sans-serif'; /* Font style */
+    transition: transform 0.3s; /* Smooth transition on hover */
+  }
+  
+  .quote-card:hover {
+    transform: translateY(-10px); /* Slight lift effect on hover */
+  }
+  
+  .quote-content {
+    margin: 0;
+  }
+  
+  .quote-text {
+    font-size: 1.5em; /* Font size for the quote */
+    color: #333; /* Text color */
+    margin-bottom: 10px; /* Spacing below the quote */
+  }
+  
+  .quote-author {
+    font-size: 1.2em; /* Font size for the author */
+    color: #555; /* Text color for the author */
+  }
+  

@@ -113,7 +113,7 @@
       [ngClass]="{ active: activeMenu === 'mySection' }"
       (click)="activeMenu = 'mySection'"
     >
-      <a (click)="MySection()" class="menu-link">
+      <a routerLink="sections/my-section" class="menu-link">
         <i class="bi bi-play-btn"></i>
         <div class="menu-title">Ma Section</div>
       </a>
