@@ -153,6 +153,18 @@
         <div class="menu-title">Dictionaires</div>
       </a>
     </li>
+
+    <!-- Livres électroniques -->
+    <li
+      class="menu-item"
+      [ngClass]="{ active: activeMenu === 'books' }"
+      (click)="activeMenu = 'books'"
+    >
+      <a routerLink="books" class="menu-link">
+        <i class="bi bi-book-half"></i>
+        <div class="menu-title">Livres Electroniques</div>
+      </a>
+    </li>
     <li
       class="menu-item"
       [ngClass]="{ active: activeMenu === 'sites' }"

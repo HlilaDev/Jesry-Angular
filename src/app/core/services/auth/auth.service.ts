@@ -68,4 +68,5 @@ export class AuthService {
     const token = this.getTokenFromCookie();
     return this.jwtHelper.isTokenExpired(token);
   }
+
 }

@@ -91,7 +91,6 @@ export const API_URLS ={
         removeLike:`${BASE_API_URL}/likes/unlikeVideo`,
         isLiked:`${BASE_API_URL}/likes/isLiked`,
 
-
     },
 
     
@@ -100,10 +99,6 @@ export const API_URLS ={
         removeFav:`${BASE_API_URL}/favs/removeFromFavorites`,
         getFavsByUserId:`${BASE_API_URL}/favs/favsByUser`,
         isFav:`${BASE_API_URL}/favs/isFav`,
-
-
-
-
 
     },
 
@@ -135,7 +130,37 @@ export const API_URLS ={
     subscribes:{
         getSubscribesById:`${BASE_API_URL}/subscribes/getSubscribesById`,
 
+    },
+
+    library:{
+        authors:{
+            addAuthor:`${BASE_API_URL}/authors/add-author/`,
+            getAuthorById:`${BASE_API_URL}/authors/author/`,
+            deleteAuthor:`${BASE_API_URL}/authors/delete-author/`,
+            updateAuthor:`${BASE_API_URL}/authors/edit-author/`,
+            allAuthors:`${BASE_API_URL}/authors/all-authors/`,
+    
+        },
+        categories:{
+            addCategory:`${BASE_API_URL}/categories/add-category/`,
+            getCategoryById:`${BASE_API_URL}/categories/category/`,
+            deleteCategory:`${BASE_API_URL}/categories/delete-category/`,
+            updateCategory:`${BASE_API_URL}/categories/edit-category/`,
+            allCategories:`${BASE_API_URL}/categories/all-categories/`,
+    
+        },
+        books:{
+            addBook:`${BASE_API_URL}/books/add-book/`,
+            getBookById:`${BASE_API_URL}/books/book/`,
+            deleteBook:`${BASE_API_URL}/books/delete-book/`,
+            updateBook:`${BASE_API_URL}/books/edit-book/`,
+            allBooks:`${BASE_API_URL}/books/all-books/`,
+    
+        },
     }
+
+
+
    
     
    

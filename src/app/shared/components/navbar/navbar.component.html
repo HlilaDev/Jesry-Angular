@@ -11,7 +11,18 @@
   </div>
 
   <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-    <a (click)="addVideo()"><i class="bi bi-grid-fill"></i></a>
+    <div class="quick-access">
+      <a
+        (click)="addVideo()"
+        class="quick-nav"
+        (click)="toggleQuickAccess($event)"
+        ><i class="bi bi-grid-fill"></i
+      ></a>
+      <app-admin-quick-access
+        *ngIf="showQuickAccess"
+        class="quick-access-banner"
+      ></app-admin-quick-access>
+    </div>
 
     <!-- Search -->
     <div class="search">

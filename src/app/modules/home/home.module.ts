@@ -8,6 +8,7 @@ import { SidebarComponent } from 'src/app/shared/components/sidebar/sidebar.comp
 import { DocsModule } from '../docs/docs.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { DashboardModule } from '../dashboard/dashboard.module';
+import { LibraryModule } from '../library/library.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { DashboardModule } from '../dashboard/dashboard.module';
     HomeRoutingModule,
     DocsModule,
     SharedModule,
-    DashboardModule
+    DashboardModule,
+    LibraryModule
   ]
 })
 export class HomeModule { }

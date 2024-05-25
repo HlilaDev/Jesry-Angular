@@ -33,7 +33,9 @@
           <strong>Institution: </strong>{{ user?.institution }}
         </li>
 
-        <li class="list-group-item"><strong>Niveau: </strong>Licence 3</li>
+        <li class="list-group-item">
+          <strong>Niveau: </strong>{{ user?.section.level }}
+        </li>
         <li class="list-group-item">
           <strong>Section: </strong>{{ user?.section.title }}
         </li>

@@ -1,0 +1,42 @@
+.admin-quick-access-banner {
+  position: absolute;
+  top: calc(100% + 10px); /* Adjust this value to position the component relative to the notification icon */
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 350px; /* Adjust width as needed */
+  max-height: 450px; /* Set maximum height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  z-index: 1000; /* Ensure the banner is on top of other elements */
+  display: flex; /* Use flexbox to arrange columns */
+  flex-wrap: wrap; /* Allow columns to wrap if needed */
+  padding: 10px;
+}
+
+.column {
+  flex: 1 1 50%; /* Each column takes up 50% width of the container */
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+h3 {
+  margin-top: 0;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 5px 0;
+}
+
+h3 i {
+  margin-right: 8px;
+}

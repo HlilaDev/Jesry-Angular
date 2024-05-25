@@ -1,16 +1,4 @@
-.notification-banner {
-    position: absolute;
-    top: calc(100% + 10px); /* Adjust this value to position the component relative to the notification icon */
-    right: 0;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 250px; /* Adjust width as needed */
-    max-height: 500px; /* Set maximum height */
-    overflow-y: auto; /* Enable vertical scrolling */
-    z-index: 1000; /* Ensure the banner is on top of other elements */
-  }
+
   
   /* Scrollbar Styles */
   .notification-banner::-webkit-scrollbar {
@@ -94,7 +82,7 @@
     padding: 0px 10px;
   }
   
-  .navbar-item {
+  .navbar-item , .quick-nav {
     margin-right: 15px;
     background-color: rgb(235, 234, 234);
     border-radius: 50%;
@@ -170,3 +158,15 @@
     font-weight: bold;
     font-size: 18px;
   }
+
+
+
+//-----quick access ---- /////
+.quick-access{
+  position:relative;
+}
+
+.quick-nav i{
+  font-size:24px;
+  color: black;
+}

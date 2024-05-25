@@ -14,7 +14,8 @@ export class NavbarComponent implements OnInit{
   nbNotifications:number=0;
   notifications:any
   userId:any
-  showNotifications: boolean = false; // State variable to toggle notification visibility
+  showNotifications: boolean = false; 
+  showQuickAccess:boolean = false ;
 
 
   constructor(private userservice:UserService , private router:Router ,private videoservices:VideoService , private auth:AuthService ){}
@@ -55,10 +56,6 @@ export class NavbarComponent implements OnInit{
     this.videoservices.getNotifications(this.userId).subscribe((res:any)=>{
  this.notifications = res
  this.nbNotifications = this.notifications.length
- console.log(this.notifications);
- 
-
- 
  
     })
   }
@@ -71,9 +68,24 @@ export class NavbarComponent implements OnInit{
 
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: Event) {
-    const clickedInside = (event.target as HTMLElement).closest('.navbar-item');
-    if (!clickedInside) {
+    const target = event.target as HTMLElement;
+    const clickedInsideNotification = target.closest('.navbar-item');
+    const clickedInsideQuickAccess = target.closest('.quick-access-banner');
+
+    if (!clickedInsideNotification) {
       this.showNotifications = false;
     }
+
+    if (!clickedInsideQuickAccess) {
+      this.showQuickAccess = false;
+    }
   }
+
+  toggleQuickAccess(event: Event){
+    event.stopPropagation();
+    this.showQuickAccess = !this.showQuickAccess
+
+  }
+
+ 
 }

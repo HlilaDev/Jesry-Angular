@@ -1,0 +1,16 @@
+<p>all-authors works!</p>
+
+<div class="row">
+  <div class="col-md-3" *ngFor="let item of authors">
+    <div class="card mb-4 shadow-sm">
+      <img class="card-img-top" [src]="item.image" alt="Book image" />
+      <div class="card-body">
+        <h5 class="card-title">{{ item.fullName }}</h5>
+        <p class="card-text"><strong>Auteur:</strong> {{ item.firstName }}</p>
+        <p class="card-text">
+          <strong>biography:</strong> {{ item.biography }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

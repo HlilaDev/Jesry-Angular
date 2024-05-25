@@ -18,7 +18,8 @@ const routes: Routes = [
       {path:'mynotes' , loadChildren:()=> import('../notes/notes.module').then(m=>m.NotesModule)},
       {path:'myfavs' , loadChildren:()=> import('../favs/favs.module').then(m=>m.FavsModule)},
       {path:'profile' , loadChildren:()=> import('../profile/profile.module').then(m=>m.ProfileModule)},
-      {path:'quotes' , loadChildren:()=> import('../quotes/quotes.module').then(m=>m.QuotesModule)}
+      {path:'quotes' , loadChildren:()=> import('../quotes/quotes.module').then(m=>m.QuotesModule)},
+      {path:'books' , loadChildren:()=> import('../library/library.module').then(m=>m.LibraryModule)}
 
 
 

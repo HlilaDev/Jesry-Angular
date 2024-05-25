@@ -1,0 +1,53 @@
+<h4>Ajouter une Categorie</h4>
+
+<div class="col-8">
+  <form>
+    <div class="input-div">
+      <label>Category Cover</label
+      ><input
+        type="file"
+        class="form-control"
+        name="cover"
+        (change)="onBookSelected($event)"
+      />
+    </div>
+    <div class="name">
+      <label>Titre</label>
+      <input
+        type="text"
+        class="form-control"
+        name="name"
+        [(ngModel)]="Category.name"
+      />
+    </div>
+
+    <div class="description">
+      <label class="form-label">Decriptions</label>
+      <textarea
+        [(ngModel)]="Category.description"
+        class="form-control"
+        name="description"
+        rows="3"
+        style="height: 84px"
+      ></textarea>
+    </div>
+
+    <div class="buttons-form">
+      <button
+        [disabled]="!requiredRules"
+        type="button"
+        class="btn btn-success mt-3"
+        (click)="addCategory()"
+      >
+        Ajouter
+      </button>
+      <button
+        type="button"
+        class="btn btn-info mt-3"
+        (click)="cancelAddCategory()"
+      >
+        Annuler
+      </button>
+    </div>
+  </form>
+</div>

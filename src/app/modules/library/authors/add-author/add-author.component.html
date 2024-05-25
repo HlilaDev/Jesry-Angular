@@ -1,0 +1,63 @@
+<h4>Ajouter une Categorie</h4>
+
+<div class="col-8">
+  <form>
+    <div class="input-div">
+      <label>Photo de l'Auteur</label
+      ><input
+        type="file"
+        class="form-control"
+        name="cover"
+        (change)="onImageSelected($event)"
+      />
+    </div>
+    <div class="firstName">
+      <label>Nom</label>
+      <input
+        type="text"
+        class="form-control"
+        name="firstName"
+        [(ngModel)]="Author.firstName"
+      />
+    </div>
+
+    <div class="firstName">
+      <label>lastName</label>
+      <input
+        type="text"
+        class="form-control"
+        name="lastName"
+        [(ngModel)]="Author.lastName"
+      />
+    </div>
+
+    <div class="description">
+      <label class="form-label">biography</label>
+      <textarea
+        [(ngModel)]="Author.biography"
+        class="form-control"
+        name="biography"
+        rows="3"
+        style="height: 84px"
+      ></textarea>
+    </div>
+
+    <div class="buttons-form">
+      <button
+        [disabled]="!requiredRules"
+        type="button"
+        class="btn btn-success mt-3"
+        (click)="addAuthor()"
+      >
+        Ajouter
+      </button>
+      <button
+        type="button"
+        class="btn btn-info mt-3"
+        (click)="cancelAddAuthor()"
+      >
+        Annuler
+      </button>
+    </div>
+  </form>
+</div>

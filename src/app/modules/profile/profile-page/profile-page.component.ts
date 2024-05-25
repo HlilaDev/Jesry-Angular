@@ -15,7 +15,7 @@ export class ProfilePageComponent implements OnInit {
   subscribes:any
 
 
-  constructor(private auth:AuthService , private userservices:UserService , private subscribeservices:SubscribeService , private router:Router){}
+  constructor(private auth:AuthService , private userservices:UserService , private subscribeservices:SubscribeService , private router:Router ){}
 
 
   ngOnInit(): void {
@@ -26,6 +26,7 @@ export class ProfilePageComponent implements OnInit {
   getUserById(){
     this.userservices.getUserById(this.userId).subscribe((res)=>{
       this.user = res
+      
     })
   }
 

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
+import { AdminQuickAccessComponent } from './components/admin-quick-access/admin-quick-access.component';
 
 
 
@@ -9,7 +10,9 @@ import { SearchBoxComponent } from './components/search-box/search-box.component
 @NgModule({
   declarations: [
     NotificationsComponent,
+    AdminQuickAccessComponent,
     SearchBoxComponent,
+    AdminQuickAccessComponent,
   
     
   
@@ -19,7 +22,7 @@ import { SearchBoxComponent } from './components/search-box/search-box.component
   ],
   exports: [
     NotificationsComponent,
-    // other components
+    AdminQuickAccessComponent,
   ]
 })
 export class SharedModule { }
