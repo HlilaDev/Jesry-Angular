@@ -28,6 +28,6 @@ export class EditAuthorComponent implements OnInit {
   editAuthor(){}
 
   cancelEditAuthor(){
-    this.router.navigate(['/books/authors'])
+    this.router.navigate(['/my-library/authors'])
   }
 }

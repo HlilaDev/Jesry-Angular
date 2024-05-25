@@ -42,11 +42,6 @@ export class NavbarComponent implements OnInit{
 
   }
 
-  addVideo(){
-    this.router.navigate([`/vids/add-video/${this.user._id}`])
-
-  }
-
   editProfile(){
     this.router.navigate([`/profile/edit-profile/${this.user._id}`])
   }

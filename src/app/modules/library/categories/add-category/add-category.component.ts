@@ -24,12 +24,12 @@ export class AddCategoryComponent {
     myForm.append('description', this.Category.description)
     myForm.append('image', this.selectedImage)
     this.categoryservices.addCategory(myForm).subscribe((res)=>{
-      this.router.navigate(['/books/categories'])
+      this.router.navigate(['/my-library/categories'])
     })
   }
 
   cancelAddCategory(){
-    this.router.navigate(['/books/categories'])
+    this.router.navigate(['/my-library/categories'])
 
   }
 

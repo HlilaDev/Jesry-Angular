@@ -31,11 +31,11 @@ export class AllCategoriesComponent implements OnInit{
   }
 
   onAddCategory(){
-    this.router.navigate(['/books/add-category'])
+    this.router.navigate(['/my-library/categories/add-category'])
   }
 
 
   onEditCategory(catId:any){
-    this.router.navigate([`books/edit-category/${catId}`])
+    this.router.navigate([`/my-library/categories/edit-category/${catId}`])
   }
 }

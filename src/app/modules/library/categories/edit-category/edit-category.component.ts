@@ -30,14 +30,14 @@ export class EditCategoryComponent implements OnInit{
 
   editCategory(){
     this.categoryservices.updateCategory(this.catId , this.Category).subscribe((res)=>{
-      this.router.navigate(['books/categories'])
+      this.router.navigate(['/my-library/categories'])
     })
   }
 
 
   cancelEdiCategory(){
 
-    this.router.navigate(['books/categories'])
+    this.router.navigate(['/my-library/categories'])
 
 
   }

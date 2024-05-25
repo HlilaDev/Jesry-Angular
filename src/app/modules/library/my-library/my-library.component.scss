@@ -1,0 +1,18 @@
+.jumbotron {
+    background-image: url("https://example.com/banner-image.jpg");
+    background-size: cover;
+    color: white;
+    padding: 15px 10px;
+    margin-bottom: 25px;
+  }
+  
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  

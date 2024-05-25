@@ -11,8 +11,9 @@ import { AllAuthorsComponent } from './authors/all-authors/all-authors.component
 import { AddCategoryComponent } from './categories/add-category/add-category.component';
 import { EditCategoryComponent } from './categories/edit-category/edit-category.component';
 import { AllCategoriesComponent } from './categories/all-categories/all-categories.component';
-import { BookStoreComponent } from './book-store/book-store.component';
 import { FormsModule } from '@angular/forms';
+import { LibraryManagementComponent } from './library-management/library-management.component';
+import { MyLibraryComponent } from './my-library/my-library.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { FormsModule } from '@angular/forms';
     AddCategoryComponent,
     EditCategoryComponent,
     AllCategoriesComponent,
-    BookStoreComponent
+    LibraryManagementComponent,
+    MyLibraryComponent
   ],
   imports: [
     CommonModule,

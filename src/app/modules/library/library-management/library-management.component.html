@@ -1,0 +1,55 @@
+<div class="library-management container mt-4">
+  <!-- Section d'en-tête -->
+  <div class="header text-center mb-4">
+    <h1>Gestion de la Bibliothèque</h1>
+    <p>Gérez efficacement les auteurs, les livres et les catégories</p>
+  </div>
+
+  <!-- Sections de gestion -->
+  <div class="row">
+    <!-- Section de gestion des auteurs -->
+    <div class="col-md-4">
+      <div class="card text-center mb-4 shadow-sm">
+        <div class="card-header bg-primary text-white">
+          <h3><i class="bi bi-person"></i> Gestion des Auteurs</h3>
+        </div>
+        <div class="card-body">
+          <p>Gérez tous les auteurs de la bibliothèque</p>
+          <button class="btn btn-primary" (click)="goToAuthors()">
+            Aller à la gestion des auteurs
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section de gestion des livres -->
+    <div class="col-md-4">
+      <div class="card text-center mb-4 shadow-sm">
+        <div class="card-header bg-success text-white">
+          <h3><i class="bi bi-book"></i> Gestion des Livres</h3>
+        </div>
+        <div class="card-body">
+          <p>Gérez tous les livres de la bibliothèque</p>
+          <button class="btn btn-success" (click)="goToBooks()">
+            Aller à la gestion des livres
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section de gestion des catégories -->
+    <div class="col-md-4">
+      <div class="card text-center mb-4 shadow-sm">
+        <div class="card-header bg-info text-white">
+          <h3><i class="bi bi-list-ul"></i> Gestion des Catégories</h3>
+        </div>
+        <div class="card-body">
+          <p>Gérez toutes les catégories de livres de la bibliothèque</p>
+          <button class="btn btn-info" (click)="goToCategories()">
+            Aller à la gestion des catégories
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

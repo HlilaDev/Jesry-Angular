@@ -1,14 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthorService } from 'src/app/core/services/library/authors/author.service';
 import { BookService } from 'src/app/core/services/library/books/book.service';
+import { CategoryService } from 'src/app/core/services/library/categories/category.service';
 
 @Component({
   selector: 'app-add-book',
   templateUrl: './add-book.component.html',
   styleUrls: ['./add-book.component.scss']
 })
-export class AddBookComponent {
-  requiredRules:boolean=false;
+export class AddBookComponent implements OnInit {
+  requiredRules:boolean=true;
   Book={
     title:"",
     summary:"",
@@ -22,7 +24,11 @@ export class AddBookComponent {
   authors:any
   selectedBook:any
 
-  constructor(private bookservices:BookService, private router:Router){}
+  constructor(private bookservices:BookService, private router:Router , private categorieservices:CategoryService , private authorservices:AuthorService){}
+  ngOnInit(): void {
+    this.getAllCategories()
+    this.getAllAuthors()
+  }
 
 
   addBook(){
@@ -36,12 +42,24 @@ export class AddBookComponent {
     myForm.append('pdf' , this.selectedBook)
 
     this.bookservices.addbook(myForm).subscribe((res)=>{
-      this.router.navigate(['/book'])
+      this.router.navigate(['/my-library'])
+    })
+  }
+
+  getAllCategories(){
+    this.categorieservices.allCategories().subscribe((res)=>{
+      this.categories = res
+    })
+  }
+
+  getAllAuthors(){
+    this.authorservices.getallAuthors().subscribe((res:any)=>{
+      this.authors = res
     })
   }
 
   cancelAddBook(){
-    this.router.navigate(['/books'])
+    this.router.navigate(['/my-library'])
   }
 
   onSectionChange(event:any){

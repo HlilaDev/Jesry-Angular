@@ -14,6 +14,10 @@ export class BookService {
     addbook(newBook:any){
       return this.http.post(API_URLS.library.books.addBook,newBook)
     }
+
+    getAllBooks(){
+      return this.http.get(API_URLS.library.books.allBooks)
+    }
   
     //edit book
     editbook(bookId:any , updatedbook:any){

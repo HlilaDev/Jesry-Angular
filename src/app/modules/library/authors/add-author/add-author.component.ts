@@ -32,7 +32,7 @@ export class AddAuthorComponent {
     myForm.append("image" , this.selectedImage)
 
     this.authorservices.addAuthor(myForm).subscribe((res)=>{
-      this.router.navigate(['/books/authors'])
+      this.router.navigate(['/my-library/authors'])
 
     })
 
@@ -40,7 +40,7 @@ export class AddAuthorComponent {
   }
 
   cancelAddAuthor(){
-    this.router.navigate(['/books/authors'])
+    this.router.navigate(['/my-library/authors'])
   }
 
 
