@@ -38,4 +38,8 @@ export class BookService {
     }
 
 
+    seachBooksByQuerry(querry:any){
+      return this.http.get(API_URLS.library.books.searchBooksByQuery+querry)
+    }
+
 }

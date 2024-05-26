@@ -13,8 +13,12 @@ export class AllBooksComponent implements OnInit{
   categories:any
   authors:any
 
-
   constructor(private router:Router , private bookservices:BookService){}
+
+  ngOnInit(): void {
+    this.getAllBooks()
+      }
+  
 
   getAllBooks(){
     this.bookservices.getAllBooks().subscribe((res:any)=>{
@@ -22,16 +26,18 @@ export class AllBooksComponent implements OnInit{
       console.log(this.books);
       
     })
-
   }
 
 
-  ngOnInit(): void {
-    this.getAllBooks()
-      }
-      onAddBook(){}
-      onEditBook(bookId:any){
-        this.router.navigate([`/my-library/books/edit-book/${bookId}`])
-      }
-      onDeleteBook(bookId:any){}
+  onAddBook(){
+    this.router.navigate(['/my-library/books/add-book'])
+  }
+  onEditBook(bookId:any){
+    this.router.navigate([`/my-library/books/edit-book/${bookId}`])
+  }
+  onDeleteBook(bookId:any){
+    this.bookservices.deletebook(bookId).subscribe((res)=>{
+      this.getAllBooks()
+    })
+  }
 }

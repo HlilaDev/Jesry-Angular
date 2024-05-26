@@ -19,9 +19,23 @@
       <tbody class="table-border-bottom-0">
         <tr *ngFor="let item of books; let i = index">
           <td>{{ i + 1 }}</td>
-          <td>xx</td>
           <td>
-            <strong class="text-capitalize">{{ item.title }}</strong>
+            <img
+              [src]="
+                'http://localhost:3000/uploads/library/books/' + item.image
+              "
+              alt=""
+            />
+          </td>
+          <td>
+            <strong class="text-capitalize"
+              ><a
+                [href]="
+                  'http://localhost:3000/uploads/library/books/' + item.url
+                "
+                >{{ item.title }}</a
+              ></strong
+            >
           </td>
           <td>
             <strong class="text-capitalize">{{ item.author.fullName }}</strong>

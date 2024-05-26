@@ -1,59 +1,38 @@
 <div class="container mt-2">
-  <button class="btn btn-info mb-3" (click)="liraryManagement()">
+  <button class="btn btn-info mb-3" (click)="libraryManagement()">
     Gestion de Library
   </button>
   <!-- Banner Section -->
   <div class="jumbotron text-center bg-info text-white">
-    <h1>Bienvenue dans notre librairie</h1>
+    <h1>Bienvenue dans votre librairie</h1>
     <p>Découvrez une variété de livres de différents genres</p>
   </div>
 
   <!-- Filter and Search Section -->
-  <div class="row mb-4">
+  <div class="row mb-4 align-items-center mb-4">
     <!-- Filter Area -->
-    <div class="col-8">
-      <div class="d-flex justify-content-between align-items-center">
-        <div class="form-group me-2">
-          <label for="categoryFilter" class="form-label"
-            ><i class="bi bi-filter"></i> Catégorie</label
-          >
-          <select id="categoryFilter" class="form-select">
-            <option value="">Toutes les catégories</option>
-            <option *ngFor="let category of categories" [value]="category">
-              {{ category }}
-            </option>
-          </select>
-        </div>
-        <div class="form-group me-2">
-          <label for="authorFilter" class="form-label"
-            ><i class="bi bi-person"></i> Auteur</label
-          >
-          <select id="authorFilter" class="form-select">
-            <option value="">Tous les auteurs</option>
-            <option *ngFor="let author of authors" [value]="author">
-              {{ author }}
-            </option>
-          </select>
-        </div>
-        <div class="form-group me-2">
-          <label for="ratingFilter" class="form-label"
-            ><i class="bi bi-star-fill"></i> Note</label
-          >
-          <select id="ratingFilter" class="form-select">
-            <option value="">Toutes les notes</option>
-            <option value="5">5 étoiles</option>
-            <option value="4">4 étoiles et plus</option>
-            <option value="3">3 étoiles et plus</option>
-            <option value="2">2 étoiles et plus</option>
-            <option value="1">1 étoile et plus</option>
-          </select>
-        </div>
-        <button class="btn btn-primary mt-4">Appliquer</button>
+    <div class="col-md-8 d-flex flex-wrap">
+      <div class="form-group me-2">
+        <select id="categoryFilter" class="form-select">
+          <option value="">Toutes les catégories</option>
+          <option *ngFor="let category of categories" [value]="category._id">
+            {{ category.name }}
+          </option>
+        </select>
       </div>
+      <div class="form-group me-2">
+        <select id="authorFilter" class="form-select">
+          <option value="">Tous les auteurs</option>
+          <option *ngFor="let author of authors" [value]="author._id">
+            {{ author.fullName }}
+          </option>
+        </select>
+      </div>
+      <button class="btn btn-secondary">Appliquer</button>
     </div>
 
     <!-- Search Area -->
-    <div class="col-4">
+    <div class="col-md-4">
       <div class="input-group">
         <span class="input-group-text"><i class="bi bi-search"></i></span>
         <input
@@ -68,8 +47,12 @@
 
   <!-- Books Section -->
   <div class="row">
-    <div class="col-md-3" *ngFor="let item of books">
-      <div class="card mb-4 shadow-sm">
+    <div class="book-card col-md-3" *ngFor="let item of books; let i = index">
+      <div
+        class="card mb-4 shadow-sm"
+        (mouseenter)="hoverIndex = i"
+        (mouseleave)="hoverIndex = -1"
+      >
         <img
           class="card-img-top"
           src="http://localhost:3000/uploads/library/books/cover.jpg"
@@ -83,6 +66,10 @@
           <p class="card-text">
             <strong>Catégorie:</strong> {{ item.category[0].name }}
           </p>
+          <i class="bi bi-info-circle-fill"></i>
+        </div>
+        <div class="summary" *ngIf="hoverIndex === i">
+          <p>{{ item.summary }}</p>
         </div>
       </div>
     </div>

@@ -151,6 +151,7 @@ export const API_URLS ={
             updateBook:`${BASE_API_URL}/books/edit-book/`,
             allBooks:`${BASE_API_URL}/books/all-books/`,
             getRandomBook:`${BASE_API_URL}/books/randomeBook`,
+            searchBooksByQuery:`${BASE_API_URL}/books/search?q=`,
     
         },
     }

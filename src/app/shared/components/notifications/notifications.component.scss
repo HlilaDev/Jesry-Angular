@@ -35,6 +35,9 @@
   background-color: #f0f0f0;
   padding: 8px;
   border-bottom: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .notification-header h4 {
@@ -89,8 +92,36 @@
   }
 }
 
-
-.no-notif{
+.no-notif {
   font-size: 16px;
   padding: 0px 10px;
+}
+
+.notif-info-container {
+  display: inline-block;
+  position: relative;
+}
+
+.notif-info {
+  display: none;
+  font-size: 12px;
+  position: absolute;
+  top: 20px; /* Adjust based on the icon size */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 200px; /* Adjust width as needed */
+  z-index: 1000; /* Ensure the info box is on top of other elements */
+}
+
+.notif-info-icon:hover + .notif-info {
+  display: block;
+}
+
+.notif-info-icon{
+  font-size: 16px;
 }

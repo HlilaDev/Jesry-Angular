@@ -23,6 +23,7 @@ export class AddBookComponent implements OnInit {
   selectedCategory:any;
   authors:any
   selectedBook:any
+  selectedCover:any
 
   constructor(private bookservices:BookService, private router:Router , private categorieservices:CategoryService , private authorservices:AuthorService){}
   ngOnInit(): void {
@@ -40,6 +41,8 @@ export class AddBookComponent implements OnInit {
     myForm.append('category', this.Book.category);
     myForm.append('pages', this.Book.pages)
     myForm.append('pdf' , this.selectedBook)
+    myForm.append('image' , this.selectedCover)
+
 
     this.bookservices.addbook(myForm).subscribe((res)=>{
       this.router.navigate(['/my-library'])
@@ -67,7 +70,14 @@ export class AddBookComponent implements OnInit {
   }
 
   onBookSelected(event:any){
-    this.selectedBook = event.target.value
+    this.selectedBook = event.target.files[0];
   }
+
+  onCoverSelected(event:any):void{
+    this.selectedCover = event.target.files[0];
+  }
+  
+  
+
 
 }

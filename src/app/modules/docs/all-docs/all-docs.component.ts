@@ -33,12 +33,14 @@ export class AllDocsComponent implements OnInit {
     this.router.navigate(['/docs/add-doc']);
   }
 
-  EditUser(docId: any): void {
+  EditDoc(docId: any): void {
     this.router.navigate([`/docs/edit-doc/${docId}`])
   }
 
-  DeleteUser(docId: any): void {
-    // Implement delete functionality
+  DeleteDoc(docId: any): void {
+    this.docService.deleteDoc(docId).subscribe((res:any)=>{
+      this.getDocs(this.currentPage)
+    })
   }
 
   // Method to handle page change

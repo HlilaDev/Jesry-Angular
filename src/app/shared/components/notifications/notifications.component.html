@@ -1,6 +1,11 @@
 <div class="notification-banner">
   <div class="notification-header">
     <h4>Notifications</h4>
+    <i class="notif-info-icon bi bi-info-circle"></i>
+    <div class="notif-info">
+      "Ces notifications de contenus (associées à votre liste de cours abonnés)
+      ajoutées au cours des 10 derniers jours"
+    </div>
   </div>
   <div *ngIf="notifications.length == 0">
     <span class="no-notif">Aucune notification..</span>

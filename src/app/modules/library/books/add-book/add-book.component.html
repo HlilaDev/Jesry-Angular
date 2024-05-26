@@ -33,6 +33,16 @@
       ></textarea>
     </div>
 
+    <div class="input-div">
+      <label> Cover</label
+      ><input
+        type="file"
+        class="form-control"
+        name="cover"
+        (change)="onCoverSelected($event)"
+      />
+    </div>
+
     <div class="section">
       <label for="section">categorie</label>
       <select
