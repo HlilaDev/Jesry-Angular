@@ -1,19 +1,20 @@
-<h3>Random book</h3>
-<div class="col-md-3">
-  <div class="card mb-4 shadow-sm">
-    <img
-      class="card-img-top"
-      src="http://localhost:3000/uploads/library/books/cover.jpg"
-      alt="Book image"
-    />
-    <div class="card-body">
-      <h5 class="card-title">{{ Book.title }}</h5>
-      <p class="card-text">
-        <strong>Auteur:</strong> {{ Book.author.fullName }}
-      </p>
-      <p class="card-text">
-        <strong>Catégorie:</strong> {{ Book.category[0].name }}
-      </p>
+<div class="random-book">
+  <div class="col-md-3 mt-3">
+    <div class="card mb-4 shadow-sm">
+      <img
+        class="card-img-top"
+        [src]="'http://localhost:3000/uploads/library/books/' + Book.image"
+        alt="Book image"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ Book.title }}</h5>
+        <p class="card-text">
+          <strong>Auteur:</strong> {{ Book.author.fullName }}
+        </p>
+        <p class="card-text">
+          <strong>Catégorie:</strong> {{ Book.category[0].name }}
+        </p>
+      </div>
     </div>
   </div>
 </div>

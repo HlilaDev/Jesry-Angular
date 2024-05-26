@@ -9,8 +9,8 @@ import { adminModeratorGuard } from 'src/app/core/gurads/admin-moderator/admin-m
 
 const routes: Routes = [
   {path:'' , component:AllVideosComponent} ,
-  {path:'add-video/:uid' , component:AddVideoComponent , canActivate:[adminModeratorGuard]},
-  {path:'edit-video' , component:EditVideoComponent, canActivate:[adminModeratorGuard]},
+  {path:'add-video' , component:AddVideoComponent , canActivate:[adminModeratorGuard]},
+  {path:'edit-video/:uid' , component:EditVideoComponent, canActivate:[adminModeratorGuard]},
   {path:'videos-list' , component:VideosListComponent, canActivate:[adminModeratorGuard]},
   {path:'play/:vid' , component:PlayVideoComponent}
 

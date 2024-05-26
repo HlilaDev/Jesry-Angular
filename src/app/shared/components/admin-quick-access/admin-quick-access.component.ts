@@ -13,5 +13,18 @@ export class AdminQuickAccessComponent {
   addBook(){
     this.router.navigate(['/my-library/books/add-book'])
   }
+  addVideo(){
+    this.router.navigate(['/vids/add-video'])
+  }
+  
+  AddDoc(){
+    this.router.navigate(['/docs/add-doc'])
+  }
+  allBooks(){
+    this.router.navigate(['/my-library/books'])
+  }
+  AllUsers(){}
+
+  allVideos(){}
 
 }

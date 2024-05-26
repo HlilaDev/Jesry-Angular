@@ -1,38 +1,30 @@
 <div class="admin-quick-access-banner">
   <div class="column">
-    <h3><i class="bi bi-people"></i> Users</h3>
+    <h3><i class="bi bi-people"></i> Gestions des utilisateurs</h3>
     <ul>
-      <li>View Users</li>
+      <li><a (click)="AllUsers()">Tous les utilisateurs</a></li>
       <li>Add User</li>
-      <li>Edit User</li>
-      <li>Delete User</li>
     </ul>
   </div>
   <div class="column">
-    <h3><i class="bi bi-file-earmark-text"></i> Documents Management</h3>
+    <h3><i class="bi bi-file-earmark-text"></i> Gestions des documents</h3>
     <ul>
       <li>View Documents</li>
-      <li>Add Document</li>
-      <li>Edit Document</li>
-      <li>Delete Document</li>
+      <li><a (click)="AddDoc()">Ajouter un document</a></li>
     </ul>
   </div>
   <div class="column">
-    <h3><i class="bi bi-camera-video"></i> Video Management</h3>
+    <h3><i class="bi bi-camera-video"></i> Gestions des Videos</h3>
     <ul>
-      <li>View Videos</li>
-      <li>Add Video</li>
-      <li>Edit Video</li>
-      <li>Delete Video</li>
+      <li><a (click)="allVideos()">Add Video</a></li>
+      <li><a (click)="addVideo()">Add Video</a></li>
     </ul>
   </div>
   <div class="column">
-    <h3><i class="bi bi-book"></i> Books Management</h3>
+    <h3><i class="bi bi-book"></i> Gestions des livre</h3>
     <ul>
-      <li>View Books</li>
+      <li><a (click)="allBooks()">Tous les livres</a></li>
       <li><a (click)="addBook()">Add Book</a></li>
-      <li>Edit Book</li>
-      <li>Delete Book</li>
     </ul>
   </div>
 </div>

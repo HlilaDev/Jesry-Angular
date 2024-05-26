@@ -6,7 +6,7 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  width: 350px; /* Adjust width as needed */
+  width: 400px; /* Adjust width as needed */
   max-height: 450px; /* Set maximum height */
   overflow-y: auto; /* Enable vertical scrolling */
   z-index: 1000; /* Ensure the banner is on top of other elements */
@@ -35,8 +35,16 @@ ul {
 
 li {
   margin: 5px 0;
+  padding: 5px;
 }
 
 h3 i {
   margin-right: 8px;
+}
+
+
+li:hover{
+  background-color: rgb(231, 232, 232);
+  border-radius: 12px;
+  cursor: pointer;
 }
