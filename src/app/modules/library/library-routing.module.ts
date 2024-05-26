@@ -10,10 +10,12 @@ import { EditAuthorComponent } from './authors/edit-author/edit-author.component
 import { AllAuthorsComponent } from './authors/all-authors/all-authors.component';
 import { LibraryManagementComponent } from './library-management/library-management.component';
 import { MyLibraryComponent } from './my-library/my-library.component';
+import { AllBooksComponent } from './books/all-books/all-books.component';
 
 const routes: Routes = [
   {path:'' , component:MyLibraryComponent},
   {path:'books/add-book', component:AddBookComponent},
+  {path:'books', component:AllBooksComponent},
   {path:'books/edit-book/:bid' , component:EditBookComponent},
   {path:'categories/edit-category/:cid' , component:EditCategoryComponent},
   {path:'categories' , component:AllCategoriesComponent},
@@ -21,7 +23,7 @@ const routes: Routes = [
   {path:'authors/add-author' , component:AddAuthorComponent},
   {path:'authors/edit-author/:aid' , component:EditAuthorComponent},
   {path:'authors' , component:AllAuthorsComponent},
-  { path: 'management', component: LibraryManagementComponent },
+  {path: 'management', component: LibraryManagementComponent },
 
   
 

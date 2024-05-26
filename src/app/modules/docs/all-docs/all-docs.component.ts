@@ -13,8 +13,9 @@ export class AllDocsComponent implements OnInit {
   docs: any[] = [];
   totalPages: any;
   currentPage: number = 1;
+  searchTerm:any='';
 
-  constructor( private docService: DocService, private router: Router) {}
+  constructor( private docService: DocService, private router: Router ) {}
 
   ngOnInit(): void {
     this.getDocs(this.currentPage);
@@ -25,7 +26,6 @@ export class AllDocsComponent implements OnInit {
       this.docs = res.docs;
       this.totalPages = res.totalPages;
       this.currentPage = res.currentPage;
-      console.log(this.docs);
     });
   }
 
@@ -45,6 +45,22 @@ export class AllDocsComponent implements OnInit {
   changePage(page: number): void {
     if (page > 0 && page <= this.totalPages) {
       this.getDocs(page);
+    }
+  }
+
+  searchDoc(): void {
+    if (this.searchTerm.trim() === '') {
+      // If the search term is empty, load all documents
+      this.getDocs(this.currentPage);
+    } else {
+      // Perform the search
+      this.docService.seacrhDocsByQuerry(this.searchTerm).subscribe((res: any) => {
+        this.docs = res.docs;
+        this.totalPages = res.totalPages || 1; // Default to 1 if not provided
+        this.currentPage = res.currentPage || 1; 
+        console.log(this.docs);
+        
+      });
     }
   }
 }

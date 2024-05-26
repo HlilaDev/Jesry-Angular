@@ -5,6 +5,17 @@
 <div class="card">
   <h5 class="card-header">Tous les Documents:</h5>
   <div class="table-responsive text-nowrap">
+    <div class="form-group col-4 ml-2">
+      <input
+        type="text"
+        class="form-control"
+        id="searchDoc"
+        name="searchDoc"
+        [(ngModel)]="searchTerm"
+        (keyup.enter)="searchDoc()"
+        placeholder="Rechercher"
+      />
+    </div>
     <table class="table">
       <thead>
         <tr>

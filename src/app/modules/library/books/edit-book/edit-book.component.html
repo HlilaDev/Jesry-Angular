@@ -1,1 +1,71 @@
-<p>edit-book works!</p>
+<p>Modifier un Livre</p>
+
+<div class="col-8">
+  <form action="">
+    <div class="title">
+      <label>Titre</label>
+      <input
+        type="text"
+        class="form-control"
+        name="title"
+        [(ngModel)]="Book.title"
+      />
+    </div>
+
+    <div class="summary">
+      <label class="form-label">Decriptions</label>
+      <textarea
+        [(ngModel)]="Book.summary"
+        class="form-control"
+        name="summary"
+        rows="3"
+        style="height: 84px"
+      ></textarea>
+    </div>
+
+    <div class="section">
+      <label for="section">categorie</label>
+      <select
+        class="select2 form-select"
+        name="category"
+        [(ngModel)]="Book.category"
+        (change)="onSectionChange($event)"
+      >
+        <option *ngFor="let item of categories" [value]="item._id">
+          {{ item.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="author col-4">
+      <label for="course">Auteur</label>
+      <select
+        class="select2 form-select"
+        name="author"
+        [(ngModel)]="Book.author"
+      >
+        <option *ngFor="let item of authors" [value]="item._id">
+          {{ item.fullName }}
+        </option>
+      </select>
+    </div>
+
+    <div class="buttons-form">
+      <button
+        [disabled]="!requiredRules"
+        type="button"
+        class="btn btn-success mt-3"
+        (click)="addBook()"
+      >
+        Ajouter
+      </button>
+      <button
+        type="button"
+        class="btn btn-info mt-3"
+        (click)="cancelEditBook()"
+      >
+        Annuler
+      </button>
+    </div>
+  </form>
+</div>

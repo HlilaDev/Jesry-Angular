@@ -36,11 +36,6 @@ export const API_URLS ={
     searchVideoByQuerry:`${BASE_API_URL}/videos/search?q=`,
     incrementViews:`${BASE_API_URL}/videos/incrementViews`,
     getNotifications:`${BASE_API_URL}/videos/notifications`,
-
-
-
-
-
     },
 
     //Docs API
@@ -52,7 +47,7 @@ export const API_URLS ={
     getDocById:`${BASE_API_URL}/docs/doc/`,
     getDocByCourse:`${BASE_API_URL}/docs/docByCourse/`,
     getDocsBySection:`${BASE_API_URL}/docs/docBySection/`,
-    searchDocsByQuerry:`${BASE_API_URL}/docs/search/q=`,
+    searchDocsByQuerry:`${BASE_API_URL}/docs/search?q=`,
     },
 
     //Playlists API
@@ -155,6 +150,7 @@ export const API_URLS ={
             deleteBook:`${BASE_API_URL}/books/delete-book/`,
             updateBook:`${BASE_API_URL}/books/edit-book/`,
             allBooks:`${BASE_API_URL}/books/all-books/`,
+            getRandomBook:`${BASE_API_URL}/books/randomeBook`,
     
         },
     }
