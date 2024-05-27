@@ -14,6 +14,7 @@ export class EditBookComponent implements OnInit {
   authors:any;
   categories:any;
   requiredRules:boolean=true ;
+  selectedCover:any
 
   constructor(private bookservices:BookService ,private categoryservices:CategoryService , private act:ActivatedRoute , private authorservices:AuthorService , private router:Router){}
 
@@ -46,17 +47,18 @@ export class EditBookComponent implements OnInit {
   }
 
 
-
   onSectionChange(event:Event){}
 
   cancelEditBook(){
-    this.router.
-    
-    navigate(['/my-library/books'])
+    this.router.navigate(['/my-library/books'])
   }
 
-  addBook(){
+  editBook(){
     this.router.navigate(['/my-library/books/add-book'])
   }
 
+
+  onCoverSelected(event:any){
+    this.selectedCover = event.target.files[0]
+  }
 }

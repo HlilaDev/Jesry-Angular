@@ -23,6 +23,20 @@
       ></textarea>
     </div>
 
+    <div class="input-div">
+      <img
+        [src]="'http://localhost:3000/uploads/library/books/' + Book.image"
+        alt=""
+      />
+      <label> Cover</label
+      ><input
+        type="file"
+        class="form-control"
+        name="cover"
+        (change)="onCoverSelected($event)"
+      />
+    </div>
+
     <div class="section">
       <label for="section">categorie</label>
       <select
@@ -55,7 +69,7 @@
         [disabled]="!requiredRules"
         type="button"
         class="btn btn-success mt-3"
-        (click)="addBook()"
+        (click)="editBook()"
       >
         Ajouter
       </button>

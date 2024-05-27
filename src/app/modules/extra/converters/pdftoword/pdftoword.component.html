@@ -1,0 +1,9 @@
+<div class="container">
+  <h2>Upload PDF to Convert to Word</h2>
+  <form (ngSubmit)="onSubmit($event)">
+    <div class="form-group">
+      <input type="file" (change)="onFileChange($event)" accept=".pdf" />
+    </div>
+    <button type="submit" class="btn btn-primary">Convert</button>
+  </form>
+</div>

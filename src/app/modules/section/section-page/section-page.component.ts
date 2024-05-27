@@ -35,6 +35,12 @@ export class SectionPageComponent implements OnInit {
     const userId = this.authService.getUserIDFromToken();
     this.userService.getUserById(userId).subscribe((res: any) => {
       this.section = res.section;
+      this.sectionService.getCoursesBySection(this.section._id).subscribe((res)=>{
+        this.section = res
+        console.log(this.section);
+        
+      })
+      
     });
   }
 

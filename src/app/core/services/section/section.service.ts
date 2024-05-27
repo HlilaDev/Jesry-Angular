@@ -34,5 +34,8 @@ export class SectionService {
     return this.http.get(API_URLS.sections.getSectionById+sectionId)
   }
 
+  getCoursesBySection(sectionId:any){
+    return this.http.get(API_URLS.sections.getCoursesBySectionId+sectionId)
+  }
 
 }

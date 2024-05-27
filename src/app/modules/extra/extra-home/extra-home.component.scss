@@ -1,0 +1,32 @@
+.banner {
+    // background-image: url('path-to-your-banner-image.jpg'); /* Optional: Add a background image */
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .card {
+    position: relative;
+    transition: transform 0.2s ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .icon-container {
+    position: absolute;
+    top: -20px;
+    left: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+  
+  .section-header {
+    margin-bottom: 2rem;
+  }
+  

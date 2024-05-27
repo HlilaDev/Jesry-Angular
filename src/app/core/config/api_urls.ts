@@ -118,6 +118,8 @@ export const API_URLS ={
         updateSection:`${BASE_API_URL}/sections/edit-section/`,
         allSections:`${BASE_API_URL}/sections/allsections/`,
         getSectionsByLevel:`${BASE_API_URL}/sections/sectionsByLevel/`,
+        getCoursesBySectionId:`${BASE_API_URL}/sections/coursesbysection/`,
+
         
 
     },
