@@ -1,1 +1,33 @@
-<p>add-course-bysection works!</p>
+<p>Ajouter une Matière</p>
+
+<div class="col-4">
+  <form action="">
+    <div class="descriptions">
+      <label for="level">Matière</label>
+
+      <select
+        name="level"
+        id="level"
+        class="form-select"
+        [(ngModel)]="section.courses"
+      >
+        <option *ngFor="let item of courses" [value]="item._id">
+          {{ item.title }}
+        </option>
+      </select>
+    </div>
+    <div class="buttons-form">
+      <button type="button" class="btn btn-success mt-3" (click)="addCourse()">
+        Ajouter
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-secondary mt-3"
+        (click)="cancelAddCourse()"
+      >
+        Annuler
+      </button>
+    </div>
+  </form>
+</div>

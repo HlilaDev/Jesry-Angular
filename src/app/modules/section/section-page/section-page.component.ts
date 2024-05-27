@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { CourseService } from 'src/app/core/services/course/course.service';
+import { RelationService } from 'src/app/core/services/relations/relation.service';
 import { SectionService } from 'src/app/core/services/section/section.service';
 import { UserService } from 'src/app/core/services/user/user.service';
 
@@ -9,29 +11,43 @@ import { UserService } from 'src/app/core/services/user/user.service';
   templateUrl: './section-page.component.html',
   styleUrls: ['./section-page.component.scss']
 })
-export class SectionPageComponent  implements OnInit{
+export class SectionPageComponent implements OnInit {
+  section: any;
+  courses: any;
+  selectedCourseId:any;
+  modalStatue:boolean = true;
 
-  section:any
+  constructor(
+    private userService: UserService,
+    private relationService: RelationService,
+    private courseService: CourseService,
+    private authService: AuthService,
+    private router: Router,
+    private sectionService: SectionService
+  ) {}
 
-  constructor( private userservices:UserService, private auth:AuthService , private router:Router , private sectionservices:SectionService){}
   ngOnInit(): void {
-    this.getSectionByUser()
+    this.getSectionByUser();
+    this.getAllCourses();
   }
 
-
-  getSectionByUser(){
-    const userId = this.auth.getUserIDFromToken()
-    this.userservices.getUserById(userId).subscribe((res:any)=>{
-      this.section = res?.section
-    })
+  getSectionByUser() {
+    const userId = this.authService.getUserIDFromToken();
+    this.userService.getUserById(userId).subscribe((res: any) => {
+      this.section = res.section;
+    });
   }
 
+  getAllCourses() {
+    this.courseService.getAllCourses().subscribe((res: any) => {
+      this.courses = res;
+    });
+  }
 
-
-
-addCourse(){
-  this.router.navigate([`/courses/add-course/${this.section._id}`])
-}
-
-
+  addCourseToSection(courseId: string) {
+    const newRelation = { sectionId: this.section._id, courseId };
+    this.relationService.sectionCourseAddRelation(newRelation).subscribe(() => {
+      this.getSectionByUser(); // Refresh section data
+    });
+  }
 }

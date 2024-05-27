@@ -12,27 +12,87 @@
 
   <!-- Courses Section -->
   <div class="row">
-    <!--add course--->
+    <!-- Add course -->
     <div class="col-md-4">
       <div class="course card mb-4 bg-warning">
         <div class="card-body">
           <h5 class="card-title text-white">Ajouter une Matière</h5>
-          <p class="card-text">Description of course 1.</p>
-          <a (click)="addCourse()" class="btn btn-primary text-white"
-            >Ajouter</a
+          <p class="card-text">Ajouter une Matière à cette section.</p>
+          <button
+            class="btn btn-primary text-white"
+            data-bs-toggle="modal"
+            data-bs-target="#basicModal"
           >
+            Ajouter
+          </button>
         </div>
       </div>
     </div>
-    <!-- Column 1 -->
-    <div class="col-md-4">
+    <!-- Existing courses -->
+    <div *ngFor="let item of section?.courses" class="col-md-4">
       <div class="course card mb-4">
         <div class="card-body">
-          <h5 class="card-title">Course 1</h5>
-          <p class="card-text">Description of course 1.</p>
+          <h5 class="card-title">{{ item._id }}</h5>
+          <p class="card-text">Description of course {{ item._id }}.</p>
           <a href="#" class="btn btn-primary">Documents</a>
-          <a href="#" class="videos btn btn-secondary">Vidéos</a>
+          <a href="#" class="btn btn-secondary">Vidéos</a>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="basicModal"
+  tabindex="-1"
+  aria-hidden="true"
+  #basicModal
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel1">Ajouter une matière</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col mb-3">
+            <label for="courseSelect" class="form-label">Cours</label>
+            <select
+              id="courseSelect"
+              class="form-select"
+              [(ngModel)]="selectedCourseId"
+            >
+              <option *ngFor="let course of courses" [value]="course._id">
+                {{ course.title }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-outline-secondary"
+          data-bs-dismiss="modal"
+        >
+          Annuler
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+          (click)="addCourseToSection(selectedCourseId)"
+        >
+          Ajouter
+        </button>
       </div>
     </div>
   </div>

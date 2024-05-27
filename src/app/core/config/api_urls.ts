@@ -154,6 +154,15 @@ export const API_URLS ={
             searchBooksByQuery:`${BASE_API_URL}/books/search?q=`,
     
         },
+
+
+    },
+
+    relations:{
+        courseSection:{
+            addRelation:`${BASE_API_URL}//relation-course-section/add-relation`,
+            removeRelation:`${BASE_API_URL}//relation-course-section/remove-relation`,
+        }
     }
 
 
